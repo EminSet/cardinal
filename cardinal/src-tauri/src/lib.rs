@@ -3,6 +3,7 @@ mod commands;
 mod duplicate_files;
 mod lifecycle;
 mod quicklook;
+mod renderer_health;
 mod search_activity;
 mod sort;
 mod window_controls;
