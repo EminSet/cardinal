@@ -496,7 +496,8 @@ pub fn run_background_event_loop(
                 } = job.expect("Search channel closed");
                 let opts = SearchOptions::from(options);
                 let payload = cache.search_query_with_options(query, opts, cancellation_token);
-                result_tx.send(payload).expect("Failed to send result");
+                // A WebContent recovery can drop an outstanding IPC receiver.
+                let _ = result_tx.send(payload);
             }
             recv(node_info_rx) -> request => {
                 let request = request.expect("Node info channel closed");

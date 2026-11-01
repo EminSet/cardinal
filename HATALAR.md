@@ -1,3 +1,11 @@
+## [2026-11-01] WebKit GPU sureci kapandiktan sonra arayuz siyah kaldi
+
+Sebep: macOS unified log 01:32-01:41 arasinda tekrarlayan GPUProcess Unresponsive ve GPUProcessCrashedTooManyTimes nedeniyle WebContent PID 1552'nin kapatildigini gosterdi. Ana surec acik kaldi; mevcut uygulamada arayuz saglik kontrolu/kurtarma yoktu. Onceki CPU artisinin ilk tetikleyicisi kayitlardan belirlenemedi.
+
+Cozum: Gorunur pencerede native taraftan 15 saniyelik DOM/IPC kontrolu; 60 saniye yanitsizlikta WebView reload; 10 dakikada en fazla 3 deneme. Gizli/kucultulmus pencerede kurtarma yapilmaz. Saglik olaylari sinirli boyutlu loga kaydedilir. Kaybolan arama IPC alicisi arka plan indeksini panikletmez.
+
+Kural: WebContent sureci ana uygulamadan bagimsiz sonlanabilir; native saglik kontrolu, sinirli kurtarma ve kayit tutulmali. GPU kilitlenmesinin ilk nedeni ile kurtarma eksikligi birbirinden ayri raporlanmali.
+
 ## [2026-08-28] Tauri target dizininde tasima oncesi mutlak yol kaldi
 
 Sebep: Repo `.graphify/repos/...` yolundan `dev/cardinal` yoluna tasindiktan sonra Tauri'nin uretilmis izin dosyalari eski mutlak yolu isaret etmeye devam etti.

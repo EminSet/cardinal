@@ -4,6 +4,7 @@ mod duplicate_files;
 mod lifecycle;
 mod quicklook;
 mod renderer_health;
+mod renderer_watchdog;
 mod search_activity;
 mod sort;
 mod window_controls;
@@ -164,6 +165,7 @@ pub fn run() -> Result<()> {
             toggle_main_window,
             set_tray_activation_policy,
             copy_files_to_clipboard,
+            renderer_watchdog::renderer_heartbeat,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -173,6 +175,7 @@ pub fn run() -> Result<()> {
         .expect("Failed to initialize database path");
 
     let app_handle = app.handle().to_owned();
+    renderer_watchdog::start(app_handle.clone());
     let channels = BackgroundLoopChannels {
         finish_rx,
         search_rx,

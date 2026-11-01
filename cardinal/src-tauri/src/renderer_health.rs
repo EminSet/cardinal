@@ -24,3 +24,28 @@ mod tests {
         assert!(!health.check(560, true, 555));
     }
 }
+#[derive(Default)]
+pub(crate) struct Health {
+    visible_since: Option<u64>,
+    last_reload: u64,
+    reloads: Vec<u64>,
+}
+
+impl Health {
+    pub(crate) fn check(&mut self, now: u64, visible: bool, last_response: u64) -> bool {
+        if !visible {
+            self.visible_since = None;
+            return false;
+        }
+        let visible_since = *self.visible_since.get_or_insert(now);
+        self.reloads.retain(|time| now.saturating_sub(*time) < 600);
+        if now.saturating_sub(visible_since.max(last_response).max(self.last_reload)) < 60
+            || self.reloads.len() >= 3
+        {
+            return false;
+        }
+        self.last_reload = now;
+        self.reloads.push(now);
+        true
+    }
+}
