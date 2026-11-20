@@ -32,4 +32,13 @@ fn main() {
         sugg.len(),
         sugg.iter().map(|s| s.size).sum::<u64>()
     );
+    let mut by_rule: std::collections::BTreeMap<&str, (usize, u64)> = Default::default();
+    for s in &sugg {
+        let e = by_rule.entry(s.rule).or_default();
+        e.0 += 1;
+        e.1 += s.size;
+    }
+    for (rule, (n, size)) in by_rule {
+        println!("  {rule:<22} {n:>3} items {:>8.2} GB", size as f64 / 1e9);
+    }
 }

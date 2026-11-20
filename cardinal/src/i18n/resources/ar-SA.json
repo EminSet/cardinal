@@ -435,6 +435,30 @@
       "installer": {
         "title": "ملف تثبيت",
         "detail": "لا حاجة إليه بعد تثبيت التطبيق."
+      },
+      "oldExtensions": {
+        "title": "إصدارات قديمة من إضافات المحرر",
+        "detail": "إصدارات مستبدلة من إضافات VS Code / Cursor / Antigravity؛ يستخدم المحرر أحدثها."
+      },
+      "chromeServiceWorker": {
+        "title": "ذاكرة Service Worker في Chrome",
+        "detail": "ذاكرات المواقع للعمل دون اتصال؛ يعاد إنشاؤها، لكن المواقع تفقد بياناتها دون اتصال حتى زيارتها مجددًا."
+      },
+      "pnpmStore": {
+        "title": "مخزن حزم pnpm",
+        "detail": "مخزن حزم مشترك؛ تعيد المشاريع تنزيل الحزم عند التثبيت التالي. `pnpm store prune` يزيل غير المستخدم فقط."
+      },
+      "googleUpdaterCache": {
+        "title": "ذاكرة Google Updater",
+        "detail": "حزم تحديث تطبيقات Google المنزّلة؛ تُنزّل مجددًا عند الحاجة."
+      },
+      "editorCache": {
+        "title": "ذاكرة المحرر",
+        "detail": "ذاكرات VS Code / Cursor / Antigravity؛ يعاد إنشاؤها عند فتح المحرر. أغلق المحرر أولًا."
+      },
+      "clangModuleCache": {
+        "title": "ذاكرة وحدات Clang",
+        "detail": "ذاكرة الوحدات المترجمة في Xcode/clang؛ يعاد إنشاؤها عند البناء التالي."
       }
     },
     "space": {

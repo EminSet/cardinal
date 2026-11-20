@@ -435,6 +435,30 @@
       "installer": {
         "title": "インストーラファイル",
         "detail": "アプリのインストール後は不要です。"
+      },
+      "oldExtensions": {
+        "title": "古いエディタ拡張機能のバージョン",
+        "detail": "VS Code / Cursor / Antigravity 拡張機能の置き換え済みバージョン。エディタは最新版を使います。"
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome の Service Worker キャッシュ",
+        "detail": "Web サイトのオフラインキャッシュ。再作成されますが、次に訪れるまでオフラインデータは失われます。"
+      },
+      "pnpmStore": {
+        "title": "pnpm パッケージストア",
+        "detail": "共有パッケージストア。次回のインストールで再ダウンロードされます。`pnpm store prune` は未使用分のみ削除します。"
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater キャッシュ",
+        "detail": "Google アプリのダウンロード済み更新パッケージ。必要に応じて再取得されます。"
+      },
+      "editorCache": {
+        "title": "エディタのキャッシュ",
+        "detail": "VS Code / Cursor / Antigravity のキャッシュ。起動時に再作成されます。先にエディタを終了してください。"
+      },
+      "clangModuleCache": {
+        "title": "Clang モジュールキャッシュ",
+        "detail": "Xcode/clang のコンパイル済みモジュールキャッシュ。次回のビルドで再作成されます。"
       }
     },
     "space": {

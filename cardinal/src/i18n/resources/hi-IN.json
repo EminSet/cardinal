@@ -425,6 +425,30 @@
       "installer": {
         "title": "इंस्टॉलर फ़ाइल",
         "detail": "ऐप इंस्टॉल होने के बाद ज़रूरी नहीं।"
+      },
+      "oldExtensions": {
+        "title": "एडिटर एक्सटेंशन के पुराने संस्करण",
+        "detail": "VS Code / Cursor / Antigravity एक्सटेंशन के बदले जा चुके संस्करण; एडिटर नवीनतम उपयोग करता है।"
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome Service Worker कैश",
+        "detail": "वेबसाइटों के ऑफ़लाइन कैश; फिर बनते हैं, पर दोबारा देखने तक साइटों का ऑफ़लाइन डेटा मिट जाता है।"
+      },
+      "pnpmStore": {
+        "title": "pnpm पैकेज स्टोर",
+        "detail": "साझा पैकेज स्टोर; अगली इंस्टॉल पर प्रोजेक्ट पैकेज फिर डाउनलोड करेंगे। `pnpm store prune` केवल अनुपयोगी हटाता है।"
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater कैश",
+        "detail": "Google ऐप्स के डाउनलोड किए गए अपडेट पैकेज; ज़रूरत पर फिर डाउनलोड होते हैं।"
+      },
+      "editorCache": {
+        "title": "एडिटर कैश",
+        "detail": "VS Code / Cursor / Antigravity कैश; एडिटर खुलने पर फिर बनते हैं। पहले एडिटर बंद करें।"
+      },
+      "clangModuleCache": {
+        "title": "Clang मॉड्यूल कैश",
+        "detail": "Xcode/clang का कंपाइल्ड मॉड्यूल कैश; अगले बिल्ड पर फिर बनता है।"
       }
     },
     "space": {

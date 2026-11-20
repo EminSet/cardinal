@@ -11,6 +11,7 @@ parking_lot = "0.12"
 postcard = { version = "1", default-features = false, features = ["use-std"] }
 rayon = "1"
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 tracing = "0.1"
 zstd = "0.13"
 

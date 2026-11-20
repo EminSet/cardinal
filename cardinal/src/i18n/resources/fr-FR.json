@@ -435,6 +435,30 @@
       "installer": {
         "title": "Fichier d'installation",
         "detail": "Inutile une fois l'app installée."
+      },
+      "oldExtensions": {
+        "title": "Anciennes versions d'extensions d'éditeur",
+        "detail": "Versions remplacées d'extensions VS Code / Cursor / Antigravity ; l'éditeur utilise la plus récente."
+      },
+      "chromeServiceWorker": {
+        "title": "Cache Service Worker de Chrome",
+        "detail": "Caches hors ligne des sites ; ils se reconstruisent, mais les sites perdent leurs données hors ligne jusqu'à la prochaine visite."
+      },
+      "pnpmStore": {
+        "title": "Magasin de paquets pnpm",
+        "detail": "Magasin partagé ; les projets retéléchargent les paquets à la prochaine installation. `pnpm store prune` ne retire que les inutilisés."
+      },
+      "googleUpdaterCache": {
+        "title": "Cache de Google Updater",
+        "detail": "Paquets de mise à jour téléchargés des apps Google ; retéléchargés au besoin."
+      },
+      "editorCache": {
+        "title": "Cache de l'éditeur",
+        "detail": "Caches de VS Code / Cursor / Antigravity ; recréés au lancement. Quittez l'éditeur d'abord."
+      },
+      "clangModuleCache": {
+        "title": "Cache de modules Clang",
+        "detail": "Cache de modules compilés de Xcode/clang ; recréé à la prochaine compilation."
       }
     },
     "space": {

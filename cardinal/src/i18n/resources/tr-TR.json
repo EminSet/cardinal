@@ -435,6 +435,30 @@
       "installer": {
         "title": "Kurulum dosyası",
         "detail": "Uygulama kurulduktan sonra gerekmez."
+      },
+      "oldExtensions": {
+        "title": "Eski editör eklentisi sürümleri",
+        "detail": "VS Code / Cursor / Antigravity eklentilerinin yerini yenisi almış sürümleri; editör en yenisini kullanıyor."
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome Service Worker önbelleği",
+        "detail": "Sitelerin çevrimdışı önbellekleri; yeniden oluşur, ama siteler tekrar ziyaret edilene kadar çevrimdışı verileri sıfırlanır."
+      },
+      "pnpmStore": {
+        "title": "pnpm paket deposu",
+        "detail": "Ortak paket deposu; projeler bir sonraki kurulumda paketleri yeniden indirir. `pnpm store prune` yalnızca kullanılmayanları siler."
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater önbelleği",
+        "detail": "Google uygulamalarının indirilmiş güncelleme paketleri; gerekince yeniden iner."
+      },
+      "editorCache": {
+        "title": "Editör önbelleği",
+        "detail": "VS Code / Cursor / Antigravity önbellekleri; editör açılınca yeniden oluşur. Önce editörü kapatın."
+      },
+      "clangModuleCache": {
+        "title": "Clang modül önbelleği",
+        "detail": "Xcode/clang'ın derlenmiş modül önbelleği; bir sonraki derlemede yeniden oluşur."
       }
     },
     "space": {
