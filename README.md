@@ -1,4 +1,4 @@
-> **Community fork:** this repository is based on [cardisoft/cardinal](https://github.com/cardisoft/cardinal). Use **`public/cardinal-enhancements`**, not the default `master` branch, for this fork's complete feature set. [Türkçe: fork differences and integration guide](docs/FORK-INTEGRATION.tr-TR.md).
+> **Community fork:** this repository is based on [cardisoft/cardinal](https://github.com/cardisoft/cardinal). The default branch **`public/cardinal-enhancements`** contains this fork's complete feature set; `master` retains the upstream baseline. [Türkçe: fork differences and integration guide](docs/FORK-INTEGRATION.tr-TR.md).
 
 ## Working with this fork
 
@@ -34,7 +34,7 @@ Upstream `master` is still at `4c50734f9a09d88110f96652b43634b412f79449`; [our P
 
 ### Download
 
-**The commands and upstream releases below install original Cardinal, not this fork.** Download this fork's Apple Silicon DMG from [fork release v0.1.24-fork.1](https://github.com/MehmetEminBozdag/cardinal/releases/tag/v0.1.24-fork.1), or build `public/cardinal-enhancements`. This is a community prerelease with an ad-hoc signature, not an Apple-notarized upstream build. The release tag identifies the fork snapshot; the bundled app still reports native version `0.1.24`.
+**The commands and upstream releases below install original Cardinal, not this fork.** Download this fork's Apple Silicon DMG from [the latest fork release](https://github.com/MehmetEminBozdag/cardinal/releases/latest), or build `public/cardinal-enhancements`. This is the published community fork build with an ad-hoc signature, not an Apple-notarized upstream build. The release tag identifies the fork snapshot; the bundled app still reports native version `0.1.24`.
 
 Install original Cardinal with Homebrew:
 

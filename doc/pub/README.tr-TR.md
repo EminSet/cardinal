@@ -1,4 +1,4 @@
-> **Topluluk fork'u:** Bu depo [orijinal Cardinal](https://github.com/cardisoft/cardinal) üzerine geliştirilmiştir. Tüm ek özellikler **`public/cardinal-enhancements`** dalındadır; varsayılan `master` dalında değildir. [Ayrıntılı farklar ve entegrasyon rehberi](../../docs/FORK-INTEGRATION.tr-TR.md).
+> **Topluluk fork'u:** Bu depo [orijinal Cardinal](https://github.com/cardisoft/cardinal) üzerine geliştirilmiştir. Varsayılan dal **`public/cardinal-enhancements`**, tüm ek özellikleri içerir; `master` orijinal tabanı korur. [Ayrıntılı farklar ve entegrasyon rehberi](../../docs/FORK-INTEGRATION.tr-TR.md).
 
 ## Bu fork ile çalışma
 
@@ -32,7 +32,7 @@ Görsel tür/tarih/boyut filtreleri, en yeniler, kayıtlı aramalar, favoriler, 
 
 ### İndirme
 
-**Aşağıdaki Homebrew komutu ve upstream sürümleri orijinal Cardinal'i kurar; bu fork'u kurmaz.** Apple Silicon DMG için [fork yayını v0.1.24-fork.1](https://github.com/MehmetEminBozdag/cardinal/releases/tag/v0.1.24-fork.1) kullanılabilir; kaynak için `public/cardinal-enhancements` dalını derleyin. Paket topluluk ön sürümüdür, ad-hoc imzalıdır ve Apple notarization içermez. Yayın etiketi fork kaydını ayırır; uygulama içindeki native sürüm hâlâ `0.1.24` görünür.
+**Aşağıdaki Homebrew komutu ve upstream sürümleri orijinal Cardinal'i kurar; bu fork'u kurmaz.** Apple Silicon DMG için [güncel fork yayınını](https://github.com/MehmetEminBozdag/cardinal/releases/latest) kullanın; kaynak için `public/cardinal-enhancements` dalını derleyin. Paket yayımlanan topluluk fork sürümüdür, ad-hoc imzalıdır ve Apple notarization içermez. Yayın etiketi fork kaydını ayırır; uygulama içindeki native sürüm hâlâ `0.1.24` görünür.
 
 Orijinal Cardinal'i Homebrew ile kurun:
 

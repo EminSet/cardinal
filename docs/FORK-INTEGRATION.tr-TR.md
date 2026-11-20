@@ -6,7 +6,7 @@ Kontrol tarihi: **20 Kasım 2026**. Karşılaştırma tabanı upstream `master`:
 
 Depo: <https://github.com/MehmetEminBozdag/cardinal>.
 
-**Tam entegrasyon dalı `public/cardinal-enhancements`.** Fork'un GitHub varsayılan dalı `master` hâlâ upstream tabanıdır. Varsayılan dalı veya başlı başına PR #228'i almak tüm geliştirmeleri getirmez.
+**Varsayılan ve tam entegrasyon dalı `public/cardinal-enhancements`.** Fork'un `master` dalı upstream tabanını korur. Yalnız `master` dalını veya başlı başına PR #228'i almak tüm geliştirmeleri getirmez. Yayımlanan sürüm [Latest release](https://github.com/MehmetEminBozdag/cardinal/releases/latest) bağlantısındadır; 20 Kasım 2026'da `v0.1.24-fork.1` ön sürüm işaretinden çıkarılıp Latest olarak seçilmiştir. Bu yayın durumu, aşağıdaki bilinen doğrulama eksiklerini ortadan kaldırmaz.
 
 ```bash
 git clone --branch public/cardinal-enhancements https://github.com/MehmetEminBozdag/cardinal.git
