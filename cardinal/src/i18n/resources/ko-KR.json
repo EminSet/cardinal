@@ -505,6 +505,19 @@
       "receipts_other": "설치 영수증 {{count}}개를 삭제했습니다.",
       "adminCancelled": "관리자 접근이 취소되어 권한이 필요한 항목은 그대로 남았습니다.",
       "emptyTrash": "공간을 확보하려면 휴지통을 비우세요."
+    },
+    "orphans": {
+      "title": "주인 없는 잔여물",
+      "subtitle_one": "제거된 앱 {{count}}개",
+      "subtitle_other": "제거된 앱 {{count}}개",
+      "scanning": "제거된 앱의 잔여물을 찾는 중…",
+      "empty": "제거된 앱의 잔여물이 없습니다.",
+      "note": "더 이상 설치되어 있지 않은 앱의 것으로 보입니다. 미리 선택된 항목은 없습니다. 각 항목을 확인하고(↗ Finder에서 보기) 아는 것만 선택하세요.",
+      "selectGroup": "그룹 선택",
+      "selected_one": "항목 {{count}}개 · {{size}}",
+      "selected_other": "항목 {{count}}개 · {{size}}",
+      "confirmTitle_one": "제거된 앱의 잔여 항목 {{count}}개({{size}})를 휴지통으로 옮길까요?",
+      "confirmTitle_other": "제거된 앱의 잔여 항목 {{count}}개({{size}})를 휴지통으로 옮길까요?"
     }
   },
   "dialog": {

@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} Installationsbelege entfernt.",
       "adminCancelled": "Administratorzugriff abgebrochen; betroffene Objekte wurden nicht verschoben.",
       "emptyTrash": "Leere den Papierkorb, um Speicher freizugeben."
+    },
+    "orphans": {
+      "title": "Verwaiste Reste",
+      "subtitle_one": "{{count}} deinstallierte App",
+      "subtitle_other": "{{count}} deinstallierte Apps",
+      "scanning": "Suche nach Resten entfernter Apps…",
+      "empty": "Keine Reste deinstallierter Apps gefunden.",
+      "note": "Diese scheinen zu nicht mehr installierten Apps zu gehören. Nichts ist vorausgewählt: Prüfe jedes Objekt (↗ zeigt es im Finder) und wähle nur, was du kennst.",
+      "selectGroup": "Gruppe auswählen",
+      "selected_one": "{{count}} Objekt · {{size}}",
+      "selected_other": "{{count}} Objekte · {{size}}",
+      "confirmTitle_one": "{{count}} Rest ({{size}}) deinstallierter Apps in den Papierkorb legen?",
+      "confirmTitle_other": "{{count}} Reste ({{size}}) deinstallierter Apps in den Papierkorb legen?"
     }
   },
   "dialog": {

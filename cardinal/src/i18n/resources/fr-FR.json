@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} reçus d'installation oubliés.",
       "adminCancelled": "Accès administrateur annulé ; les éléments concernés sont restés en place.",
       "emptyTrash": "Videz la Corbeille pour libérer l'espace."
+    },
+    "orphans": {
+      "title": "Restes orphelins",
+      "subtitle_one": "{{count}} app désinstallée",
+      "subtitle_other": "{{count}} apps désinstallées",
+      "scanning": "Recherche des restes d'apps supprimées…",
+      "empty": "Aucun reste d'app désinstallée trouvé.",
+      "note": "Ces éléments semblent appartenir à des apps qui ne sont plus installées. Rien n'est présélectionné : vérifiez chaque élément (↗ l'affiche dans le Finder) et ne sélectionnez que ce que vous reconnaissez.",
+      "selectGroup": "Sélectionner le groupe",
+      "selected_one": "{{count}} élément · {{size}}",
+      "selected_other": "{{count}} éléments · {{size}}",
+      "confirmTitle_one": "Placer {{count}} reste ({{size}}) d'apps désinstallées dans la Corbeille ?",
+      "confirmTitle_other": "Placer {{count}} restes ({{size}}) d'apps désinstallées dans la Corbeille ?"
     }
   },
   "dialog": {

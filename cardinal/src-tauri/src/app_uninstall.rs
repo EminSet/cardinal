@@ -6,9 +6,12 @@
 //! Only paths produced by the latest `analyze_app` for the same app are accepted.
 
 use crate::{commands::SearchState, folder_sizes};
-use folder_size::apps::{
-    self, AppPlan, AppSummary, Locations, analyze, is_running, needs_admin, read_bundle,
-    running_executables,
+use folder_size::{
+    apps::{
+        self, AppPlan, AppSummary, Locations, analyze, is_running, needs_admin, read_bundle,
+        running_executables,
+    },
+    orphans::{OrphanReport, find_orphans, spotlight_app_ids},
 };
 use once_cell::sync::Lazy;
 use parking_lot::Mutex;
@@ -30,6 +33,8 @@ static HOME: Lazy<PathBuf> = Lazy::new(|| {
 static LOCATIONS: Lazy<Locations> = Lazy::new(|| Locations::system(&HOME));
 /// Latest plan per app path; removal is limited to these items.
 static PLANS: Lazy<Mutex<HashMap<String, AppPlan>>> = Lazy::new(|| Mutex::new(HashMap::new()));
+/// Latest orphan scan; orphan removal is limited to these items.
+static ORPHANS: Lazy<Mutex<Option<OrphanReport>>> = Lazy::new(|| Mutex::new(None));
 
 const INDEX_HIT_LIMIT: usize = 300;
 /// Paths that are never touched, whatever a plan says.
@@ -140,17 +145,74 @@ pub async fn uninstall_app(
         return Err("app_running".into());
     }
     let bundle_id = plan.app.bundle_id.clone();
-    let report =
-        tauri::async_runtime::spawn_blocking(move || perform(&selected, &receipts, &bundle_id))
-            .await
-            .map_err(|e| format!("Removal failed: {e}"))?;
+    let report = tauri::async_runtime::spawn_blocking(move || {
+        perform(&selected, &receipts, Some(&bundle_id))
+    })
+    .await
+    .map_err(|e| format!("Removal failed: {e}"))?;
     folder_sizes::forget_paths(&report.moved);
     PLANS.lock().remove(&path);
     info!(app = %plan.app.bundle_id, moved = report.moved.len(), failed = report.failed.len(), "app removed");
     Ok(report)
 }
 
-fn perform(items: &[apps::Leftover], receipts: &[String], bundle_id: &str) -> UninstallReport {
+/// Leftovers of apps that are no longer installed, grouped by product.
+#[tauri::command(async)]
+pub async fn list_orphans() -> Result<OrphanReport, String> {
+    let report = tauri::async_runtime::spawn_blocking(|| {
+        let skip = [
+            LOCATIONS.user_library.join("Application Support"),
+            HOME.join(".Trash"),
+        ];
+        let known = spotlight_app_ids(&skip);
+        find_orphans(&LOCATIONS, &known, &size_hint)
+    })
+    .await
+    .map_err(|e| format!("Orphan scan failed: {e}"))?;
+    *ORPHANS.lock() = Some(report.clone());
+    Ok(report)
+}
+
+#[tauri::command(async)]
+pub async fn remove_orphans(items: Vec<String>) -> Result<UninstallReport, String> {
+    let report = ORPHANS
+        .lock()
+        .clone()
+        .ok_or("Scan for orphaned leftovers again before removing them")?;
+    let mut selected = Vec::new();
+    for item in &items {
+        let leftover = report
+            .groups
+            .iter()
+            .flat_map(|g| g.items.iter())
+            .find(|i| i.path == *item)
+            .ok_or_else(|| format!("{item} is not part of the orphan scan"))?;
+        if is_protected(Path::new(item)) {
+            return Err(format!("{item} is a protected location"));
+        }
+        selected.push(leftover.clone());
+    }
+    if selected.is_empty() {
+        return Err("Nothing selected".into());
+    }
+    let result = tauri::async_runtime::spawn_blocking(move || perform(&selected, &[], None))
+        .await
+        .map_err(|e| format!("Removal failed: {e}"))?;
+    folder_sizes::forget_paths(&result.moved);
+    *ORPHANS.lock() = None;
+    info!(
+        moved = result.moved.len(),
+        failed = result.failed.len(),
+        "orphans removed"
+    );
+    Ok(result)
+}
+
+fn perform(
+    items: &[apps::Leftover],
+    receipts: &[String],
+    bundle_id: Option<&str>,
+) -> UninstallReport {
     let uid = unsafe { libc::getuid() };
     let gid = unsafe { libc::getgid() };
     let mut report = UninstallReport::default();
@@ -185,10 +247,22 @@ fn perform(items: &[apps::Leftover], receipts: &[String], bundle_id: &str) -> Un
         run_privileged(&admin, receipts, uid, gid, &mut report);
     }
 
-    // Drop the app's cached preferences so they are not written back.
-    let _ = Command::new("/usr/bin/defaults")
-        .args(["delete", bundle_id])
-        .output();
+    // Drop cached preferences so they are not written back.
+    let mut domains: Vec<String> = bundle_id.map(str::to_owned).into_iter().collect();
+    domains.extend(items.iter().filter_map(|i| {
+        let path = Path::new(&i.path);
+        (i.kind == apps::LeftoverKind::Preferences
+            && path.extension().is_some_and(|e| e == "plist"))
+        .then(|| path.file_stem().map(|s| s.to_string_lossy().into_owned()))
+        .flatten()
+    }));
+    domains.sort();
+    domains.dedup();
+    for domain in domains {
+        let _ = Command::new("/usr/bin/defaults")
+            .args(["delete", &domain])
+            .output();
+    }
     report
 }
 

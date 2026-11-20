@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} recibos de instalação esquecidos.",
       "adminCancelled": "Acesso de administrador cancelado; os itens que o exigiam ficaram no lugar.",
       "emptyTrash": "Esvazie o Lixo para liberar espaço."
+    },
+    "orphans": {
+      "title": "Resíduos órfãos",
+      "subtitle_one": "{{count}} app desinstalado",
+      "subtitle_other": "{{count}} apps desinstalados",
+      "scanning": "Procurando resíduos de apps removidos…",
+      "empty": "Nenhum resíduo de apps desinstalados foi encontrado.",
+      "note": "Parecem pertencer a apps que não estão mais instalados. Nada vem pré-selecionado: confira cada item (↗ mostra no Finder) e selecione só o que reconhecer.",
+      "selectGroup": "Selecionar grupo",
+      "selected_one": "{{count}} item · {{size}}",
+      "selected_other": "{{count}} itens · {{size}}",
+      "confirmTitle_one": "Mover {{count}} resíduo ({{size}}) de apps desinstalados para o Lixo?",
+      "confirmTitle_other": "Mover {{count}} resíduos ({{size}}) de apps desinstalados para o Lixo?"
     }
   },
   "dialog": {

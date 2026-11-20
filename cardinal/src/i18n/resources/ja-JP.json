@@ -505,6 +505,19 @@
       "receipts_other": "インストーラのレシートを {{count}} 件消去しました。",
       "adminCancelled": "管理者アクセスがキャンセルされました。必要な項目はそのまま残っています。",
       "emptyTrash": "容量を空けるにはゴミ箱を空にしてください。"
+    },
+    "orphans": {
+      "title": "持ち主のいない残骸",
+      "subtitle_one": "アンインストール済みアプリ {{count}} 個",
+      "subtitle_other": "アンインストール済みアプリ {{count}} 個",
+      "scanning": "削除されたアプリの残骸を探しています…",
+      "empty": "アンインストール済みアプリの残骸は見つかりませんでした。",
+      "note": "すでにインストールされていないアプリのものと思われます。何も事前選択されていません。各項目を確認し (↗ で Finder に表示)、心当たりのあるものだけを選んでください。",
+      "selectGroup": "グループを選択",
+      "selected_one": "{{count}} 項目 · {{size}}",
+      "selected_other": "{{count}} 項目 · {{size}}",
+      "confirmTitle_one": "アンインストール済みアプリの残骸 {{count}} 項目 ({{size}}) をゴミ箱に入れますか?",
+      "confirmTitle_other": "アンインストール済みアプリの残骸 {{count}} 項目 ({{size}}) をゴミ箱に入れますか?"
     }
   },
   "dialog": {

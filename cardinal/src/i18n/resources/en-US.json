@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} installer receipts forgotten.",
       "adminCancelled": "Administrator access was cancelled; items that need it were left in place.",
       "emptyTrash": "Empty the Trash to free the space."
+    },
+    "orphans": {
+      "title": "Orphaned leftovers",
+      "subtitle_one": "{{count}} uninstalled app",
+      "subtitle_other": "{{count}} uninstalled apps",
+      "scanning": "Looking for leftovers of removed apps…",
+      "empty": "No leftovers of uninstalled apps were found.",
+      "note": "These seem to belong to apps that are no longer installed. Nothing is preselected: check each item (↗ shows it in Finder) and select only what you recognise.",
+      "selectGroup": "Select group",
+      "selected_one": "{{count}} item · {{size}}",
+      "selected_other": "{{count}} items · {{size}}",
+      "confirmTitle_one": "Move {{count}} leftover item ({{size}}) of uninstalled apps to the Trash?",
+      "confirmTitle_other": "Move {{count}} leftover items ({{size}}) of uninstalled apps to the Trash?"
     }
   },
   "dialog": {

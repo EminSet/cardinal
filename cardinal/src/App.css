@@ -3202,3 +3202,32 @@ button:active:not(:disabled) {
   margin: 4px 0;
   padding-left: 18px;
 }
+
+.apps-row--orphans .apps-row__name::before {
+  content: '🧹 ';
+}
+
+.apps-group__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.apps-group__title > span:first-child {
+  flex: 1;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.apps-group__select {
+  background: var(--color-elevated-bg);
+  border: 1px solid var(--color-elevated-border);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 11px;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}

@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} ricevute di installazione rimosse.",
       "adminCancelled": "Accesso amministratore annullato; gli elementi che lo richiedevano sono rimasti al loro posto.",
       "emptyTrash": "Svuota il Cestino per liberare spazio."
+    },
+    "orphans": {
+      "title": "Residui orfani",
+      "subtitle_one": "{{count}} app disinstallata",
+      "subtitle_other": "{{count}} app disinstallate",
+      "scanning": "Ricerca dei residui di app rimosse…",
+      "empty": "Nessun residuo di app disinstallate trovato.",
+      "note": "Sembrano appartenere ad app non più installate. Nulla è preselezionato: controlla ogni elemento (↗ lo mostra nel Finder) e seleziona solo ciò che riconosci.",
+      "selectGroup": "Seleziona gruppo",
+      "selected_one": "{{count}} elemento · {{size}}",
+      "selected_other": "{{count}} elementi · {{size}}",
+      "confirmTitle_one": "Spostare {{count}} residuo ({{size}}) di app disinstallate nel Cestino?",
+      "confirmTitle_other": "Spostare {{count}} residui ({{size}}) di app disinstallate nel Cestino?"
     }
   },
   "dialog": {

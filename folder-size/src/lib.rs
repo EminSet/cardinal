@@ -8,6 +8,7 @@
 
 pub mod apps;
 pub mod engine;
+pub mod orphans;
 pub mod persist;
 pub mod scan;
 pub mod suggest;

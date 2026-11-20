@@ -504,6 +504,19 @@
       "receipts_other": "已清除 {{count}} 个安装收据。",
       "adminCancelled": "已取消管理员授权；需要权限的项目保留在原处。",
       "emptyTrash": "清倒废纸篓后才会释放空间。"
+    },
+    "orphans": {
+      "title": "孤立残留",
+      "subtitle_one": "{{count}} 个已卸载的应用",
+      "subtitle_other": "{{count}} 个已卸载的应用",
+      "scanning": "正在查找已移除应用的残留…",
+      "empty": "未发现已卸载应用的残留。",
+      "note": "这些似乎属于已不再安装的应用。没有预先选择任何项：请逐项检查（↗ 在 Finder 中显示），只选择你认得的。",
+      "selectGroup": "选择整组",
+      "selected_one": "{{count}} 项 · {{size}}",
+      "selected_other": "{{count}} 项 · {{size}}",
+      "confirmTitle_one": "将已卸载应用的 {{count}} 项残留（{{size}}）移到废纸篓？",
+      "confirmTitle_other": "将已卸载应用的 {{count}} 项残留（{{size}}）移到废纸篓？"
     }
   },
   "dialog": {

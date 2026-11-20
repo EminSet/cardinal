@@ -54,6 +54,18 @@ export type UninstallReport = {
   adminCancelled: boolean;
 };
 
+export type OrphanGroup = {
+  key: string;
+  label: string;
+  size: number;
+  items: Leftover[];
+};
+
+export type OrphanReport = {
+  groups: OrphanGroup[];
+  total: number;
+};
+
 /** Certain and likely items are preselected; possible ones need an explicit choice. */
 export function defaultSelection(plan: AppPlan): Set<string> {
   return new Set(plan.items.filter((i) => i.confidence !== 'possible').map((i) => i.path));
@@ -68,6 +80,9 @@ export function useInstalledApps(active: boolean) {
   const [removing, setRemoving] = useState(false);
   const [report, setReport] = useState<UninstallReport | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [view, setView] = useState<'app' | 'orphans'>('app');
+  const [orphans, setOrphans] = useState<OrphanReport | null>(null);
+  const [orphansLoading, setOrphansLoading] = useState(false);
   const requestId = useRef(0);
 
   const refresh = useCallback(async () => {
@@ -86,8 +101,36 @@ export function useInstalledApps(active: boolean) {
     if (active && apps === null && !loading) void refresh();
   }, [active, apps, loading, refresh]);
 
+  const loadOrphans = useCallback(async () => {
+    setOrphansLoading(true);
+    try {
+      setOrphans(await invoke<OrphanReport>('list_orphans'));
+    } catch (cause) {
+      setError(String(cause));
+    } finally {
+      setOrphansLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (active && orphans === null && !orphansLoading) void loadOrphans();
+  }, [active, orphans, orphansLoading, loadOrphans]);
+
+  /** Shows leftovers of apps that are no longer installed. Nothing is preselected. */
+  const showOrphans = useCallback(() => {
+    requestId.current += 1;
+    setView('orphans');
+    setPlan(null);
+    setAnalyzing(false);
+    setReport(null);
+    setError(null);
+    setSelection(new Set());
+    void loadOrphans();
+  }, [loadOrphans]);
+
   const select = useCallback(async (path: string) => {
     const id = ++requestId.current;
+    setView('app');
     setAnalyzing(true);
     setReport(null);
     setError(null);
@@ -135,7 +178,28 @@ export function useInstalledApps(active: boolean) {
     }
   }, [plan, refresh, selection]);
 
+  const removeOrphans = useCallback(async () => {
+    if (selection.size === 0) return;
+    setRemoving(true);
+    setError(null);
+    try {
+      const result = await invoke<UninstallReport>('remove_orphans', { items: [...selection] });
+      setReport(result);
+      setSelection(new Set());
+      void loadOrphans();
+    } catch (cause) {
+      setError(String(cause));
+    } finally {
+      setRemoving(false);
+    }
+  }, [loadOrphans, selection]);
+
   return {
+    view,
+    orphans,
+    orphansLoading,
+    showOrphans,
+    removeOrphans,
     apps,
     loading,
     refresh,

@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} recibos de instalación olvidados.",
       "adminCancelled": "Se canceló el acceso de administrador; los elementos que lo requerían no se movieron.",
       "emptyTrash": "Vacía la Papelera para liberar espacio."
+    },
+    "orphans": {
+      "title": "Restos huérfanos",
+      "subtitle_one": "{{count}} app desinstalada",
+      "subtitle_other": "{{count}} apps desinstaladas",
+      "scanning": "Buscando restos de apps eliminadas…",
+      "empty": "No se encontraron restos de apps desinstaladas.",
+      "note": "Parecen pertenecer a apps que ya no están instaladas. Nada está preseleccionado: revisa cada elemento (↗ lo muestra en Finder) y selecciona solo lo que reconozcas.",
+      "selectGroup": "Seleccionar grupo",
+      "selected_one": "{{count}} elemento · {{size}}",
+      "selected_other": "{{count}} elementos · {{size}}",
+      "confirmTitle_one": "¿Mover {{count}} resto ({{size}}) de apps desinstaladas a la Papelera?",
+      "confirmTitle_other": "¿Mover {{count}} restos ({{size}}) de apps desinstaladas a la Papelera?"
     }
   },
   "dialog": {

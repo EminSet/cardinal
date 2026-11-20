@@ -364,6 +364,15 @@ impl LibrarySnapshot {
         Self { folders }
     }
 
+    /// Every entry of every scanned Library folder: (folder, kind, entry name).
+    pub fn entries(&self) -> impl Iterator<Item = (&Path, LeftoverKind, &str)> {
+        self.folders.iter().flat_map(|(root, kind, _, _, names)| {
+            names
+                .iter()
+                .map(move |n| (root.as_path(), *kind, n.as_str()))
+        })
+    }
+
     fn matches(&self, matcher: &Matcher) -> Vec<(PathBuf, LeftoverKind, Confidence)> {
         let mut out = Vec::new();
         for (root, kind, by_name, vendor, names) in &self.folders {

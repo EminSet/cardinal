@@ -505,6 +505,19 @@
       "receipts_other": "{{count}} yükleyici kaydı silindi.",
       "adminCancelled": "Yönetici izni verilmedi; izin isteyen öğeler yerinde bırakıldı.",
       "emptyTrash": "Alanın açılması için Çöp'ü boşaltın."
+    },
+    "orphans": {
+      "title": "Sahipsiz kalıntılar",
+      "subtitle_one": "{{count}} kaldırılmış uygulama",
+      "subtitle_other": "{{count}} kaldırılmış uygulama",
+      "scanning": "Kaldırılmış uygulamaların kalıntıları aranıyor…",
+      "empty": "Kaldırılmış uygulamalardan kalıntı bulunamadı.",
+      "note": "Bunlar artık kurulu olmayan uygulamalara ait görünüyor. Hiçbiri önceden seçili değil: her kalemi kontrol edin (↗ Finder'da gösterir) ve yalnızca tanıdıklarınızı seçin.",
+      "selectGroup": "Grubu seç",
+      "selected_one": "{{count}} öğe · {{size}}",
+      "selected_other": "{{count}} öğe · {{size}}",
+      "confirmTitle_one": "Kaldırılmış uygulamalardan kalan {{count}} öğe ({{size}}) Çöp'e taşınsın mı?",
+      "confirmTitle_other": "Kaldırılmış uygulamalardan kalan {{count}} öğe ({{size}}) Çöp'e taşınsın mı?"
     }
   },
   "dialog": {

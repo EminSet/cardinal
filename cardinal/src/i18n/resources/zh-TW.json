@@ -504,6 +504,19 @@
       "receipts_other": "已清除 {{count}} 個安裝收據。",
       "adminCancelled": "已取消管理者授權；需要權限的項目保留在原處。",
       "emptyTrash": "清空垃圾桶後才會釋出空間。"
+    },
+    "orphans": {
+      "title": "孤立殘留",
+      "subtitle_one": "{{count}} 個已解除安裝的 App",
+      "subtitle_other": "{{count}} 個已解除安裝的 App",
+      "scanning": "正在尋找已移除 App 的殘留…",
+      "empty": "找不到已解除安裝 App 的殘留。",
+      "note": "這些似乎屬於已不再安裝的 App。沒有預先選取任何項目：請逐項檢查（↗ 在 Finder 中顯示），只選取你認得的。",
+      "selectGroup": "選取整組",
+      "selected_one": "{{count}} 項 · {{size}}",
+      "selected_other": "{{count}} 項 · {{size}}",
+      "confirmTitle_one": "要將已解除安裝 App 的 {{count}} 項殘留（{{size}}）移到垃圾桶嗎？",
+      "confirmTitle_other": "要將已解除安裝 App 的 {{count}} 項殘留（{{size}}）移到垃圾桶嗎？"
     }
   },
   "dialog": {

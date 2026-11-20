@@ -178,6 +178,8 @@ pub fn run() -> Result<()> {
             app_uninstall::list_installed_apps,
             app_uninstall::analyze_app,
             app_uninstall::uninstall_app,
+            app_uninstall::list_orphans,
+            app_uninstall::remove_orphans,
             dialogs::confirm_dialog,
             dialogs::message_dialog,
         ])
