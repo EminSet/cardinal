@@ -4,7 +4,8 @@
       "files": "Search for files and folders...",
       "events": "Filter events by path or name...",
       "directory": "Folder scope...",
-      "sizes": "Filter folders and files by name..."
+      "sizes": "Filter folders and files by name...",
+      "apps": "Filter apps by name or bundle ID..."
     },
     "options": {
       "caseSensitive": "Toggle case-sensitive matching",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "Files",
       "events": "Events",
-      "sizes": "Sizes"
+      "sizes": "Sizes",
+      "apps": "Apps"
     },
     "lifecycle": {
       "Initializing": "Initializing",
@@ -443,5 +445,69 @@
       "hint": "Available now: {{now}}. Finder's figure also counts purgeable space.",
       "trashHint": "Items moved to the Trash free space only after you empty it."
     }
+  },
+  "apps": {
+    "listLabel": "Installed apps",
+    "count_one": "{{formatted}} app",
+    "count_other": "{{formatted}} apps",
+    "loading": "Listing apps…",
+    "running": "running",
+    "leftoverEstimate": "+{{size}} leftovers",
+    "analyzing": "Looking for everything this app left behind…",
+    "pick": "Select an app to see everything it installed and left behind.",
+    "selectRecommended": "Select recommended",
+    "selectAll": "Select all",
+    "kinds": {
+      "appBundle": "Application",
+      "support": "Application Support",
+      "cache": "Caches",
+      "preferences": "Preferences",
+      "container": "Containers",
+      "savedState": "Saved state",
+      "logs": "Logs",
+      "webData": "Web data & cookies",
+      "launchItem": "Launch agents & daemons",
+      "helper": "Privileged helpers",
+      "receipt": "Installed by its package",
+      "other": "Elsewhere on disk"
+    },
+    "confidence": {
+      "certain": "certain",
+      "likely": "likely",
+      "possible": "maybe"
+    },
+    "adminHint": "Needs administrator rights; macOS will ask for your password.",
+    "reveal": "Show in Finder",
+    "receiptsTitle": "Installer receipts (forgotten after removal)",
+    "selected_one": "{{count}} item ({{leftovers}} leftovers) · {{size}}",
+    "selected_other": "{{count}} items ({{leftovers}} leftovers) · {{size}}",
+    "adminCount_one": "{{count}} needs administrator rights",
+    "adminCount_other": "{{count}} need administrator rights",
+    "removing": "Moving to Trash…",
+    "remove": "Move to Trash ({{size}})",
+    "confirm": {
+      "title_one": "Remove {{name}}? {{count}} item ({{size}}) will be moved to the Trash.",
+      "title_other": "Remove {{name}}? {{count}} items ({{size}}) will be moved to the Trash.",
+      "more_one": "…and {{count}} more",
+      "more_other": "…and {{count}} more",
+      "admin_one": "{{count}} item needs administrator rights; macOS will ask for your password.",
+      "admin_other": "{{count}} items need administrator rights; macOS will ask for your password.",
+      "trashNote": "Nothing is deleted permanently; empty the Trash to free the space."
+    },
+    "errors": {
+      "running": "Quit the app (and any menu bar helper) before removing it."
+    },
+    "report": {
+      "moved_one": "{{count}} item moved to the Trash.",
+      "moved_other": "{{count}} items moved to the Trash.",
+      "receipts_one": "{{count}} installer receipt forgotten.",
+      "receipts_other": "{{count}} installer receipts forgotten.",
+      "adminCancelled": "Administrator access was cancelled; items that need it were left in place.",
+      "emptyTrash": "Empty the Trash to free the space."
+    }
+  },
+  "dialog": {
+    "cancel": "Cancel",
+    "moveToTrash": "Move to Trash"
   }
 }

@@ -506,6 +506,7 @@ dependencies = [
  "postcard",
  "rayon",
  "serde",
+ "serde_json",
  "tempfile",
  "tracing",
  "zstd",

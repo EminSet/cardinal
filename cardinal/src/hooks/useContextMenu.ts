@@ -6,6 +6,7 @@ import type { MenuItemOptions } from '@tauri-apps/api/menu';
 import { useTranslation } from 'react-i18next';
 import { openResultPath } from '../utils/openResultPath';
 import { splitPath } from '../utils/path';
+import { confirmNative } from '../utils/nativeConfirm';
 
 type UseContextMenuResult = {
   showContextMenu: (event: ReactMouseEvent<HTMLElement>, targetPaths: string[]) => void;
@@ -110,9 +111,15 @@ export function useContextMenu(
         text: t('contextMenu.moveToTrash', { count: trashCount }),
         accelerator: 'Cmd+Backspace',
         action: () => {
-          window.setTimeout(() => {
+          window.setTimeout(async () => {
             const message = t('contextMenu.confirmTrash', { count: trashCount });
-            if (!window.confirm(message)) {
+            const confirmed = await confirmNative({
+              message,
+              confirmLabel: t('dialog.moveToTrash'),
+              cancelLabel: t('dialog.cancel'),
+              destructive: true,
+            });
+            if (!confirmed) {
               return;
             }
             const id = `trash-${Date.now()}-${Math.random().toString(16).slice(2)}`;

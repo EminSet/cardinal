@@ -1,5 +1,7 @@
+mod app_uninstall;
 mod background;
 mod commands;
+mod dialogs;
 mod duplicate_files;
 mod folder_sizes;
 mod lifecycle;
@@ -173,6 +175,10 @@ pub fn run() -> Result<()> {
             folder_sizes::get_size_listing,
             folder_sizes::get_size_suggestions,
             folder_sizes::get_volume_space,
+            app_uninstall::list_installed_apps,
+            app_uninstall::analyze_app,
+            app_uninstall::uninstall_app,
+            dialogs::confirm_dialog,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application");

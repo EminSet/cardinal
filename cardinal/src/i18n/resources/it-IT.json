@@ -4,7 +4,8 @@
       "files": "Cerca file e cartelle...",
       "events": "Filtra eventi per percorso o nome...",
       "directory": "Ambito cartella...",
-      "sizes": "Filtra cartelle e file per nome..."
+      "sizes": "Filtra cartelle e file per nome...",
+      "apps": "Filtra app per nome o ID bundle..."
     },
     "options": {
       "caseSensitive": "Attiva/disattiva distinzione tra maiuscole e minuscole",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "File",
       "events": "Eventi",
-      "sizes": "Dimensioni"
+      "sizes": "Dimensioni",
+      "apps": "App"
     },
     "lifecycle": {
       "Initializing": "Inizializzazione",
@@ -443,5 +445,69 @@
       "hint": "Libero ora: {{now}}. Il valore del Finder include lo spazio eliminabile.",
       "trashHint": "Gli elementi nel Cestino liberano spazio solo dopo averlo svuotato."
     }
+  },
+  "apps": {
+    "listLabel": "App installate",
+    "count_one": "{{formatted}} app",
+    "count_other": "{{formatted}} app",
+    "loading": "Elenco delle app…",
+    "running": "aperta",
+    "leftoverEstimate": "+{{size}} di residui",
+    "analyzing": "Ricerca di tutto ciò che questa app ha lasciato…",
+    "pick": "Scegli un'app per vedere tutto ciò che ha installato e lasciato.",
+    "selectRecommended": "Seleziona consigliati",
+    "selectAll": "Seleziona tutto",
+    "kinds": {
+      "appBundle": "Applicazione",
+      "support": "Application Support",
+      "cache": "Cache",
+      "preferences": "Preferenze",
+      "container": "Contenitori",
+      "savedState": "Stato salvato",
+      "logs": "Log",
+      "webData": "Dati web e cookie",
+      "launchItem": "Agenti e servizi di avvio",
+      "helper": "Helper privilegiati",
+      "receipt": "Installato dal pacchetto",
+      "other": "Altrove sul disco"
+    },
+    "confidence": {
+      "certain": "certo",
+      "likely": "probabile",
+      "possible": "forse"
+    },
+    "adminHint": "Richiede i privilegi di amministratore; macOS chiederà la password.",
+    "reveal": "Mostra nel Finder",
+    "receiptsTitle": "Ricevute di installazione (rimosse dopo la disinstallazione)",
+    "selected_one": "{{count}} elemento ({{leftovers}} residui) · {{size}}",
+    "selected_other": "{{count}} elementi ({{leftovers}} residui) · {{size}}",
+    "adminCount_one": "{{count}} richiede i privilegi di amministratore",
+    "adminCount_other": "{{count}} richiedono i privilegi di amministratore",
+    "removing": "Spostamento nel Cestino…",
+    "remove": "Sposta nel Cestino ({{size}})",
+    "confirm": {
+      "title_one": "Rimuovere {{name}}? {{count}} elemento ({{size}}) verrà spostato nel Cestino.",
+      "title_other": "Rimuovere {{name}}? {{count}} elementi ({{size}}) verranno spostati nel Cestino.",
+      "more_one": "…e {{count}} altro",
+      "more_other": "…e altri {{count}}",
+      "admin_one": "{{count}} elemento richiede i privilegi di amministratore; macOS chiederà la password.",
+      "admin_other": "{{count}} elementi richiedono i privilegi di amministratore; macOS chiederà la password.",
+      "trashNote": "Nulla viene eliminato definitivamente; svuota il Cestino per liberare spazio."
+    },
+    "errors": {
+      "running": "Chiudi l'app (e il suo helper nella barra dei menu) prima di rimuoverla."
+    },
+    "report": {
+      "moved_one": "{{count}} elemento spostato nel Cestino.",
+      "moved_other": "{{count}} elementi spostati nel Cestino.",
+      "receipts_one": "{{count}} ricevuta di installazione rimossa.",
+      "receipts_other": "{{count}} ricevute di installazione rimosse.",
+      "adminCancelled": "Accesso amministratore annullato; gli elementi che lo richiedevano sono rimasti al loro posto.",
+      "emptyTrash": "Svuota il Cestino per liberare spazio."
+    }
+  },
+  "dialog": {
+    "cancel": "Annulla",
+    "moveToTrash": "Sposta nel Cestino"
   }
 }

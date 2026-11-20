@@ -27,7 +27,7 @@ type UseFilesTabStateResult = {
   handleSearchBlur: () => void;
   eventFilterQuery: string;
   setEventFilterQuery: (value: string) => void;
-  /** Name filter of the folder size tab (shares the main search input). */
+  /** Name filter of the Sizes and Apps tabs (shares the main search input). */
   sizeFilterQuery: string;
   searchInputValue: string;
   directoryInputValue: string;
@@ -142,7 +142,7 @@ export function useFilesTabState({
         return;
       }
 
-      if (activeTab === 'sizes') {
+      if (activeTab === 'sizes' || activeTab === 'apps') {
         setSizeFilterQuery(inputValue);
         return;
       }
@@ -173,7 +173,7 @@ export function useFilesTabState({
         return;
       }
 
-      if (nextTab === 'sizes') {
+      if (nextTab === 'sizes' || nextTab === 'apps') {
         setSizeFilterQuery('');
         return;
       }
@@ -187,7 +187,7 @@ export function useFilesTabState({
   const searchInputValue =
     activeTab === 'events'
       ? eventFilterQuery
-      : activeTab === 'sizes'
+      : activeTab === 'sizes' || activeTab === 'apps'
         ? sizeFilterQuery
         : searchQuery;
   const directoryInputValue = activeTab === 'files' ? directoryQuery : '';

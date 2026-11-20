@@ -4,7 +4,8 @@
       "files": "Buscar archivos y carpetas...",
       "events": "Filtrar eventos por ruta o nombre...",
       "directory": "Ámbito de carpeta...",
-      "sizes": "Filtrar carpetas y archivos por nombre..."
+      "sizes": "Filtrar carpetas y archivos por nombre...",
+      "apps": "Filtrar apps por nombre o ID de paquete..."
     },
     "options": {
       "caseSensitive": "Activar coincidencia sensible a mayúsculas",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "Archivos",
       "events": "Eventos",
-      "sizes": "Tamaños"
+      "sizes": "Tamaños",
+      "apps": "Apps"
     },
     "lifecycle": {
       "Initializing": "Inicializando",
@@ -443,5 +445,69 @@
       "hint": "Libre ahora: {{now}}. La cifra de Finder también cuenta el espacio purgable.",
       "trashHint": "Lo que mueves a la Papelera libera espacio solo al vaciarla."
     }
+  },
+  "apps": {
+    "listLabel": "Apps instaladas",
+    "count_one": "{{formatted}} app",
+    "count_other": "{{formatted}} apps",
+    "loading": "Listando apps…",
+    "running": "abierta",
+    "leftoverEstimate": "+{{size}} restos",
+    "analyzing": "Buscando todo lo que dejó esta app…",
+    "pick": "Elige una app para ver todo lo que instaló y dejó.",
+    "selectRecommended": "Seleccionar recomendados",
+    "selectAll": "Seleccionar todo",
+    "kinds": {
+      "appBundle": "Aplicación",
+      "support": "Application Support",
+      "cache": "Cachés",
+      "preferences": "Preferencias",
+      "container": "Contenedores",
+      "savedState": "Estado guardado",
+      "logs": "Registros",
+      "webData": "Datos web y cookies",
+      "launchItem": "Agentes y servicios de arranque",
+      "helper": "Ayudantes privilegiados",
+      "receipt": "Instalado por su paquete",
+      "other": "En otras partes del disco"
+    },
+    "confidence": {
+      "certain": "seguro",
+      "likely": "probable",
+      "possible": "quizá"
+    },
+    "adminHint": "Requiere permisos de administrador; macOS pedirá tu contraseña.",
+    "reveal": "Mostrar en Finder",
+    "receiptsTitle": "Recibos de instalación (se olvidan al eliminar)",
+    "selected_one": "{{count}} elemento ({{leftovers}} restos) · {{size}}",
+    "selected_other": "{{count}} elementos ({{leftovers}} restos) · {{size}}",
+    "adminCount_one": "{{count}} requiere permisos de administrador",
+    "adminCount_other": "{{count}} requieren permisos de administrador",
+    "removing": "Moviendo a la Papelera…",
+    "remove": "Mover a la Papelera ({{size}})",
+    "confirm": {
+      "title_one": "¿Eliminar {{name}}? Se moverá {{count}} elemento ({{size}}) a la Papelera.",
+      "title_other": "¿Eliminar {{name}}? Se moverán {{count}} elementos ({{size}}) a la Papelera.",
+      "more_one": "…y {{count}} más",
+      "more_other": "…y {{count}} más",
+      "admin_one": "{{count}} elemento requiere permisos de administrador; macOS pedirá tu contraseña.",
+      "admin_other": "{{count}} elementos requieren permisos de administrador; macOS pedirá tu contraseña.",
+      "trashNote": "No se borra nada definitivamente; vacía la Papelera para liberar espacio."
+    },
+    "errors": {
+      "running": "Cierra la app (y su ayudante de la barra de menús) antes de eliminarla."
+    },
+    "report": {
+      "moved_one": "{{count}} elemento movido a la Papelera.",
+      "moved_other": "{{count}} elementos movidos a la Papelera.",
+      "receipts_one": "{{count}} recibo de instalación olvidado.",
+      "receipts_other": "{{count}} recibos de instalación olvidados.",
+      "adminCancelled": "Se canceló el acceso de administrador; los elementos que lo requerían no se movieron.",
+      "emptyTrash": "Vacía la Papelera para liberar espacio."
+    }
+  },
+  "dialog": {
+    "cancel": "Cancelar",
+    "moveToTrash": "Mover a la Papelera"
   }
 }

@@ -409,6 +409,18 @@ impl SizeEngine {
         Ok(true)
     }
 
+    /// Size of a directory or big file from the current tree, if it is known.
+    pub fn size_of(&self, path: &Path) -> Option<u64> {
+        let st = self.state.lock();
+        let tree = st.tree.as_ref()?;
+        if let Some(dir) = tree.get(path) {
+            return Some(dir.size);
+        }
+        let name = path.file_name()?.to_string_lossy();
+        let parent = tree.get(path.parent()?)?;
+        parent.files.iter().find(|f| *f.name == *name).map(|f| f.size)
+    }
+
     pub fn root_path(&self) -> Option<PathBuf> {
         self.state.lock().tree.as_ref().map(|t| t.root_path.clone())
     }

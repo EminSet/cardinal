@@ -4,7 +4,8 @@
       "files": "Buscar por arquivos e pastas...",
       "events": "Filtrar eventos por caminho ou nome...",
       "directory": "Escopo de pasta...",
-      "sizes": "Filtrar pastas e arquivos por nome..."
+      "sizes": "Filtrar pastas e arquivos por nome...",
+      "apps": "Filtrar apps por nome ou ID do pacote..."
     },
     "options": {
       "caseSensitive": "Alternar correspondência sensível a maiúsculas",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "Arquivos",
       "events": "Eventos",
-      "sizes": "Tamanhos"
+      "sizes": "Tamanhos",
+      "apps": "Apps"
     },
     "lifecycle": {
       "Initializing": "Inicializando",
@@ -443,5 +445,69 @@
       "hint": "Livre agora: {{now}}. O valor do Finder também conta o espaço purgável.",
       "trashHint": "Itens movidos para o Lixo só liberam espaço quando ele é esvaziado."
     }
+  },
+  "apps": {
+    "listLabel": "Apps instalados",
+    "count_one": "{{formatted}} app",
+    "count_other": "{{formatted}} apps",
+    "loading": "Listando apps…",
+    "running": "aberto",
+    "leftoverEstimate": "+{{size}} de resíduos",
+    "analyzing": "Procurando tudo o que este app deixou…",
+    "pick": "Escolha um app para ver tudo o que ele instalou e deixou.",
+    "selectRecommended": "Selecionar recomendados",
+    "selectAll": "Selecionar tudo",
+    "kinds": {
+      "appBundle": "Aplicativo",
+      "support": "Application Support",
+      "cache": "Caches",
+      "preferences": "Preferências",
+      "container": "Contêineres",
+      "savedState": "Estado salvo",
+      "logs": "Logs",
+      "webData": "Dados web e cookies",
+      "launchItem": "Agentes e serviços de inicialização",
+      "helper": "Auxiliares privilegiados",
+      "receipt": "Instalado pelo pacote",
+      "other": "Em outros lugares do disco"
+    },
+    "confidence": {
+      "certain": "certo",
+      "likely": "provável",
+      "possible": "talvez"
+    },
+    "adminHint": "Requer privilégios de administrador; o macOS pedirá sua senha.",
+    "reveal": "Mostrar no Finder",
+    "receiptsTitle": "Recibos de instalação (esquecidos após a remoção)",
+    "selected_one": "{{count}} item ({{leftovers}} resíduos) · {{size}}",
+    "selected_other": "{{count}} itens ({{leftovers}} resíduos) · {{size}}",
+    "adminCount_one": "{{count}} requer privilégios de administrador",
+    "adminCount_other": "{{count}} requerem privilégios de administrador",
+    "removing": "Movendo para o Lixo…",
+    "remove": "Mover para o Lixo ({{size}})",
+    "confirm": {
+      "title_one": "Remover {{name}}? {{count}} item ({{size}}) será movido para o Lixo.",
+      "title_other": "Remover {{name}}? {{count}} itens ({{size}}) serão movidos para o Lixo.",
+      "more_one": "…e mais {{count}}",
+      "more_other": "…e mais {{count}}",
+      "admin_one": "{{count}} item requer privilégios de administrador; o macOS pedirá sua senha.",
+      "admin_other": "{{count}} itens requerem privilégios de administrador; o macOS pedirá sua senha.",
+      "trashNote": "Nada é apagado permanentemente; esvazie o Lixo para liberar espaço."
+    },
+    "errors": {
+      "running": "Feche o app (e seu auxiliar da barra de menus) antes de removê-lo."
+    },
+    "report": {
+      "moved_one": "{{count}} item movido para o Lixo.",
+      "moved_other": "{{count}} itens movidos para o Lixo.",
+      "receipts_one": "{{count}} recibo de instalação esquecido.",
+      "receipts_other": "{{count}} recibos de instalação esquecidos.",
+      "adminCancelled": "Acesso de administrador cancelado; os itens que o exigiam ficaram no lugar.",
+      "emptyTrash": "Esvazie o Lixo para liberar espaço."
+    }
+  },
+  "dialog": {
+    "cancel": "Cancelar",
+    "moveToTrash": "Mover para o Lixo"
   }
 }

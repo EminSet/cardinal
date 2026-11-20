@@ -4,7 +4,8 @@
       "files": "Rechercher des fichiers et des dossiers...",
       "events": "Filtrer les événements par chemin ou nom...",
       "directory": "Portée du dossier...",
-      "sizes": "Filtrer les dossiers et fichiers par nom..."
+      "sizes": "Filtrer les dossiers et fichiers par nom...",
+      "apps": "Filtrer les apps par nom ou identifiant..."
     },
     "options": {
       "caseSensitive": "Activer la correspondance sensible à la casse",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "Fichiers",
       "events": "Événements",
-      "sizes": "Tailles"
+      "sizes": "Tailles",
+      "apps": "Apps"
     },
     "lifecycle": {
       "Initializing": "Initialisation",
@@ -443,5 +445,69 @@
       "hint": "Libre maintenant : {{now}}. Le chiffre du Finder inclut l'espace purgeable.",
       "trashHint": "Les éléments placés dans la Corbeille ne libèrent de l'espace qu'une fois vidée."
     }
+  },
+  "apps": {
+    "listLabel": "Apps installées",
+    "count_one": "{{formatted}} app",
+    "count_other": "{{formatted}} apps",
+    "loading": "Liste des apps…",
+    "running": "ouverte",
+    "leftoverEstimate": "+{{size}} de restes",
+    "analyzing": "Recherche de tout ce que cette app a laissé…",
+    "pick": "Choisissez une app pour voir tout ce qu'elle a installé et laissé.",
+    "selectRecommended": "Sélectionner les recommandés",
+    "selectAll": "Tout sélectionner",
+    "kinds": {
+      "appBundle": "Application",
+      "support": "Application Support",
+      "cache": "Caches",
+      "preferences": "Préférences",
+      "container": "Conteneurs",
+      "savedState": "État enregistré",
+      "logs": "Journaux",
+      "webData": "Données web et cookies",
+      "launchItem": "Agents et démons de lancement",
+      "helper": "Assistants privilégiés",
+      "receipt": "Installé par son paquet",
+      "other": "Ailleurs sur le disque"
+    },
+    "confidence": {
+      "certain": "certain",
+      "likely": "probable",
+      "possible": "peut-être"
+    },
+    "adminHint": "Nécessite les droits d'administrateur ; macOS demandera votre mot de passe.",
+    "reveal": "Afficher dans le Finder",
+    "receiptsTitle": "Reçus d'installation (oubliés après suppression)",
+    "selected_one": "{{count}} élément ({{leftovers}} restes) · {{size}}",
+    "selected_other": "{{count}} éléments ({{leftovers}} restes) · {{size}}",
+    "adminCount_one": "{{count}} nécessite les droits d'administrateur",
+    "adminCount_other": "{{count}} nécessitent les droits d'administrateur",
+    "removing": "Placement dans la Corbeille…",
+    "remove": "Placer dans la Corbeille ({{size}})",
+    "confirm": {
+      "title_one": "Supprimer {{name}} ? {{count}} élément ({{size}}) sera placé dans la Corbeille.",
+      "title_other": "Supprimer {{name}} ? {{count}} éléments ({{size}}) seront placés dans la Corbeille.",
+      "more_one": "…et {{count}} autre",
+      "more_other": "…et {{count}} autres",
+      "admin_one": "{{count}} élément nécessite les droits d'administrateur ; macOS demandera votre mot de passe.",
+      "admin_other": "{{count}} éléments nécessitent les droits d'administrateur ; macOS demandera votre mot de passe.",
+      "trashNote": "Rien n'est supprimé définitivement ; videz la Corbeille pour libérer l'espace."
+    },
+    "errors": {
+      "running": "Quittez l'app (et son assistant de barre des menus) avant de la supprimer."
+    },
+    "report": {
+      "moved_one": "{{count}} élément placé dans la Corbeille.",
+      "moved_other": "{{count}} éléments placés dans la Corbeille.",
+      "receipts_one": "{{count}} reçu d'installation oublié.",
+      "receipts_other": "{{count}} reçus d'installation oubliés.",
+      "adminCancelled": "Accès administrateur annulé ; les éléments concernés sont restés en place.",
+      "emptyTrash": "Videz la Corbeille pour libérer l'espace."
+    }
+  },
+  "dialog": {
+    "cancel": "Annuler",
+    "moveToTrash": "Placer dans la Corbeille"
   }
 }

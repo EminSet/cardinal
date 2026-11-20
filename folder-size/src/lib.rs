@@ -6,6 +6,7 @@
 //!   incrementally so sizes stay current without full rescans.
 //! * [`suggest`] lists well-known cache/temporary locations; it never deletes.
 
+pub mod apps;
 pub mod engine;
 pub mod persist;
 pub mod scan;

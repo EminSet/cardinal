@@ -4,7 +4,8 @@
       "files": "Dosya ve klasör arayın...",
       "events": "Olayları yol veya ada göre filtreleyin...",
       "directory": "Klasör kapsamı...",
-      "sizes": "Klasör ve dosyaları ada göre süz..."
+      "sizes": "Klasör ve dosyaları ada göre süz...",
+      "apps": "Uygulamaları ada ya da paket kimliğine göre süz..."
     },
     "options": {
       "caseSensitive": "Büyük/küçük harfe duyarlı eşleşmeyi değiştir",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "Dosyalar",
       "events": "Olaylar",
-      "sizes": "Boyut"
+      "sizes": "Boyut",
+      "apps": "Uygulamalar"
     },
     "lifecycle": {
       "Initializing": "Başlatılıyor",
@@ -443,5 +445,69 @@
       "hint": "Şu an boş: {{now}}. Finder'daki değer, sistemin temizleyebileceği alanı da sayar.",
       "trashHint": "Çöp'e taşınan öğeler, Çöp boşaltılınca yer açar."
     }
+  },
+  "apps": {
+    "listLabel": "Yüklü uygulamalar",
+    "count_one": "{{formatted}} uygulama",
+    "count_other": "{{formatted}} uygulama",
+    "loading": "Uygulamalar listeleniyor…",
+    "running": "açık",
+    "leftoverEstimate": "+{{size}} kalıntı",
+    "analyzing": "Uygulamanın bıraktığı her şey aranıyor…",
+    "pick": "Kurduğu ve bıraktığı her şeyi görmek için bir uygulama seçin.",
+    "selectRecommended": "Önerilenleri seç",
+    "selectAll": "Tümünü seç",
+    "kinds": {
+      "appBundle": "Uygulama",
+      "support": "Application Support",
+      "cache": "Önbellekler",
+      "preferences": "Ayarlar",
+      "container": "Kapsayıcılar",
+      "savedState": "Kayıtlı durum",
+      "logs": "Günlükler",
+      "webData": "Web verileri ve çerezler",
+      "launchItem": "Arka plan servisleri",
+      "helper": "Ayrıcalıklı yardımcılar",
+      "receipt": "Yükleyicinin kurduğu",
+      "other": "Diskin başka yerlerinde"
+    },
+    "confidence": {
+      "certain": "kesin",
+      "likely": "büyük ihtimalle",
+      "possible": "olabilir"
+    },
+    "adminHint": "Yönetici izni gerekir; macOS şifrenizi soracak.",
+    "reveal": "Finder'da göster",
+    "receiptsTitle": "Yükleyici kayıtları (kaldırma sonrası silinir)",
+    "selected_one": "{{count}} öğe ({{leftovers}} kalıntı) · {{size}}",
+    "selected_other": "{{count}} öğe ({{leftovers}} kalıntı) · {{size}}",
+    "adminCount_one": "{{count}} öğe yönetici izni istiyor",
+    "adminCount_other": "{{count}} öğe yönetici izni istiyor",
+    "removing": "Çöp'e taşınıyor…",
+    "remove": "Çöp'e Taşı ({{size}})",
+    "confirm": {
+      "title_one": "{{name}} kaldırılsın mı? {{count}} öğe ({{size}}) Çöp'e taşınacak.",
+      "title_other": "{{name}} kaldırılsın mı? {{count}} öğe ({{size}}) Çöp'e taşınacak.",
+      "more_one": "…ve {{count}} öğe daha",
+      "more_other": "…ve {{count}} öğe daha",
+      "admin_one": "{{count}} öğe yönetici izni istiyor; macOS şifrenizi soracak.",
+      "admin_other": "{{count}} öğe yönetici izni istiyor; macOS şifrenizi soracak.",
+      "trashNote": "Hiçbir şey kalıcı silinmez; alanın açılması için Çöp'ü boşaltın."
+    },
+    "errors": {
+      "running": "Kaldırmadan önce uygulamayı (ve menü çubuğundaki yardımcısını) kapatın."
+    },
+    "report": {
+      "moved_one": "{{count}} öğe Çöp'e taşındı.",
+      "moved_other": "{{count}} öğe Çöp'e taşındı.",
+      "receipts_one": "{{count}} yükleyici kaydı silindi.",
+      "receipts_other": "{{count}} yükleyici kaydı silindi.",
+      "adminCancelled": "Yönetici izni verilmedi; izin isteyen öğeler yerinde bırakıldı.",
+      "emptyTrash": "Alanın açılması için Çöp'ü boşaltın."
+    }
+  },
+  "dialog": {
+    "cancel": "Vazgeç",
+    "moveToTrash": "Çöp'e Taşı"
   }
 }

@@ -4,7 +4,8 @@
       "files": "搜索文件和文件夹…",
       "events": "按路径或名称筛选事件…",
       "directory": "限定文件夹范围…",
-      "sizes": "按名称筛选文件夹和文件..."
+      "sizes": "按名称筛选文件夹和文件...",
+      "apps": "按名称或 Bundle ID 筛选应用..."
     },
     "options": {
       "caseSensitive": "切换区分大小写匹配",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "文件",
       "events": "事件",
-      "sizes": "大小"
+      "sizes": "大小",
+      "apps": "应用"
     },
     "lifecycle": {
       "Initializing": "正在初始化",
@@ -442,5 +444,69 @@
       "hint": "当前可用：{{now}}。Finder 显示的数值还包括可清除空间。",
       "trashHint": "移到废纸篓的项目要在清倒废纸篓后才会释放空间。"
     }
+  },
+  "apps": {
+    "listLabel": "已安装的应用",
+    "count_one": "{{formatted}} 个应用",
+    "count_other": "{{formatted}} 个应用",
+    "loading": "正在列出应用…",
+    "running": "运行中",
+    "leftoverEstimate": "+{{size}} 残留",
+    "analyzing": "正在查找此应用留下的所有内容…",
+    "pick": "选择一个应用，查看它安装和留下的所有内容。",
+    "selectRecommended": "选择推荐项",
+    "selectAll": "全选",
+    "kinds": {
+      "appBundle": "应用程序",
+      "support": "Application Support",
+      "cache": "缓存",
+      "preferences": "偏好设置",
+      "container": "容器",
+      "savedState": "保存的状态",
+      "logs": "日志",
+      "webData": "网页数据与 Cookie",
+      "launchItem": "启动代理与守护进程",
+      "helper": "特权辅助程序",
+      "receipt": "由安装包安装",
+      "other": "磁盘上的其他位置"
+    },
+    "confidence": {
+      "certain": "确定",
+      "likely": "很可能",
+      "possible": "可能"
+    },
+    "adminHint": "需要管理员权限；macOS 会要求输入密码。",
+    "reveal": "在 Finder 中显示",
+    "receiptsTitle": "安装收据（移除后清除）",
+    "selected_one": "{{count}} 项（{{leftovers}} 项残留）· {{size}}",
+    "selected_other": "{{count}} 项（{{leftovers}} 项残留）· {{size}}",
+    "adminCount_one": "{{count}} 项需要管理员权限",
+    "adminCount_other": "{{count}} 项需要管理员权限",
+    "removing": "正在移到废纸篓…",
+    "remove": "移到废纸篓（{{size}}）",
+    "confirm": {
+      "title_one": "移除 {{name}}？{{count}} 项（{{size}}）将被移到废纸篓。",
+      "title_other": "移除 {{name}}？{{count}} 项（{{size}}）将被移到废纸篓。",
+      "more_one": "…以及另外 {{count}} 项",
+      "more_other": "…以及另外 {{count}} 项",
+      "admin_one": "{{count}} 项需要管理员权限；macOS 会要求输入密码。",
+      "admin_other": "{{count}} 项需要管理员权限；macOS 会要求输入密码。",
+      "trashNote": "不会永久删除任何内容；清倒废纸篓后才会释放空间。"
+    },
+    "errors": {
+      "running": "移除前请先退出该应用（及其菜单栏辅助程序）。"
+    },
+    "report": {
+      "moved_one": "已将 {{count}} 项移到废纸篓。",
+      "moved_other": "已将 {{count}} 项移到废纸篓。",
+      "receipts_one": "已清除 {{count}} 个安装收据。",
+      "receipts_other": "已清除 {{count}} 个安装收据。",
+      "adminCancelled": "已取消管理员授权；需要权限的项目保留在原处。",
+      "emptyTrash": "清倒废纸篓后才会释放空间。"
+    }
+  },
+  "dialog": {
+    "cancel": "取消",
+    "moveToTrash": "移到废纸篓"
   }
 }

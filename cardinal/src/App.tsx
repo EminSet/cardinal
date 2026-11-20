@@ -22,6 +22,8 @@ import { ROW_HEIGHT, OVERSCAN_ROW_COUNT } from './constants';
 import type { VirtualListHandle } from './components/VirtualList';
 import FSEventsPanel from './components/FSEventsPanel';
 import { SizesPanel } from './components/SizesPanel';
+import { AppsPanel } from './components/AppsPanel';
+import { useInstalledApps } from './hooks/useInstalledApps';
 import { useFolderSizes } from './hooks/useFolderSizes';
 import { formatBytes } from './utils/folderSize';
 import type { FSEventsPanelHandle } from './components/FSEventsPanel';
@@ -190,6 +192,7 @@ function App() {
     requestPermission: requestFullDiskAccessPermission,
   } = useFullDiskAccessPermission();
   const folderSizes = useFolderSizes(activeTab === 'sizes');
+  const installedApps = useInstalledApps(activeTab === 'apps');
 
   const focusSearchInput = useCallback(() => {
     requestAnimationFrame(() => {
@@ -392,7 +395,9 @@ function App() {
       ? t('search.placeholder.files')
       : activeTab === 'events'
         ? t('search.placeholder.events')
-        : t('search.placeholder.sizes');
+        : activeTab === 'sizes'
+          ? t('search.placeholder.sizes')
+          : t('search.placeholder.apps');
   const directorySearchPlaceholder = t('search.placeholder.directory');
   const searchAriaLabel = t('search.aria.searchInput');
   const permissionSteps = [
@@ -510,6 +515,12 @@ function App() {
                 searchQuery={eventFilterQuery}
                 caseInsensitive={!caseSensitive}
               />
+            ) : activeTab === 'apps' ? (
+              <AppsPanel
+                apps={installedApps}
+                filterQuery={sizeFilterQuery}
+                home={folderSizes.home}
+              />
             ) : activeTab === 'sizes' ? (
               <SizesPanel
                 sizes={folderSizes}
@@ -614,6 +625,7 @@ function App() {
               ? formatBytes(folderSizes.status.totalSize)
               : null
           }
+          appsValue={installedApps.apps ? installedApps.apps.length.toLocaleString() : null}
           lifecycleState={lifecycleState}
           searchDurationMs={durationMs}
           resultCount={resultCount}

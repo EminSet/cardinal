@@ -4,7 +4,8 @@
       "files": "搜尋檔案和資料夾…",
       "events": "依路徑或名稱篩選事件…",
       "directory": "限定資料夾範圍…",
-      "sizes": "依名稱篩選檔案夾與檔案..."
+      "sizes": "依名稱篩選檔案夾與檔案...",
+      "apps": "依名稱或 Bundle ID 篩選 App..."
     },
     "options": {
       "caseSensitive": "切換區分大小寫比對",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "檔案",
       "events": "事件",
-      "sizes": "大小"
+      "sizes": "大小",
+      "apps": "App"
     },
     "lifecycle": {
       "Initializing": "正在初始化",
@@ -442,5 +444,69 @@
       "hint": "目前可用：{{now}}。Finder 顯示的數值也包含可清除空間。",
       "trashHint": "移到垃圾桶的項目要在清空垃圾桶後才會釋出空間。"
     }
+  },
+  "apps": {
+    "listLabel": "已安裝的 App",
+    "count_one": "{{formatted}} 個 App",
+    "count_other": "{{formatted}} 個 App",
+    "loading": "正在列出 App…",
+    "running": "執行中",
+    "leftoverEstimate": "+{{size}} 殘留",
+    "analyzing": "正在尋找此 App 留下的所有內容…",
+    "pick": "選擇一個 App，查看它安裝與留下的所有內容。",
+    "selectRecommended": "選擇建議項目",
+    "selectAll": "全選",
+    "kinds": {
+      "appBundle": "應用程式",
+      "support": "Application Support",
+      "cache": "快取",
+      "preferences": "偏好設定",
+      "container": "容器",
+      "savedState": "儲存的狀態",
+      "logs": "記錄",
+      "webData": "網頁資料與 Cookie",
+      "launchItem": "啟動代理程式與常駐程式",
+      "helper": "特權輔助程式",
+      "receipt": "由安裝套件安裝",
+      "other": "磁碟上的其他位置"
+    },
+    "confidence": {
+      "certain": "確定",
+      "likely": "很可能",
+      "possible": "可能"
+    },
+    "adminHint": "需要管理者權限；macOS 會要求輸入密碼。",
+    "reveal": "在 Finder 中顯示",
+    "receiptsTitle": "安裝收據（移除後清除）",
+    "selected_one": "{{count}} 項（{{leftovers}} 項殘留）· {{size}}",
+    "selected_other": "{{count}} 項（{{leftovers}} 項殘留）· {{size}}",
+    "adminCount_one": "{{count}} 項需要管理者權限",
+    "adminCount_other": "{{count}} 項需要管理者權限",
+    "removing": "正在移到垃圾桶…",
+    "remove": "移到垃圾桶（{{size}}）",
+    "confirm": {
+      "title_one": "要移除 {{name}} 嗎？{{count}} 項（{{size}}）將移到垃圾桶。",
+      "title_other": "要移除 {{name}} 嗎？{{count}} 項（{{size}}）將移到垃圾桶。",
+      "more_one": "…以及另外 {{count}} 項",
+      "more_other": "…以及另外 {{count}} 項",
+      "admin_one": "{{count}} 項需要管理者權限；macOS 會要求輸入密碼。",
+      "admin_other": "{{count}} 項需要管理者權限；macOS 會要求輸入密碼。",
+      "trashNote": "不會永久刪除任何內容；清空垃圾桶後才會釋出空間。"
+    },
+    "errors": {
+      "running": "移除前請先結束該 App（及其選單列輔助程式）。"
+    },
+    "report": {
+      "moved_one": "已將 {{count}} 項移到垃圾桶。",
+      "moved_other": "已將 {{count}} 項移到垃圾桶。",
+      "receipts_one": "已清除 {{count}} 個安裝收據。",
+      "receipts_other": "已清除 {{count}} 個安裝收據。",
+      "adminCancelled": "已取消管理者授權；需要權限的項目保留在原處。",
+      "emptyTrash": "清空垃圾桶後才會釋出空間。"
+    }
+  },
+  "dialog": {
+    "cancel": "取消",
+    "moveToTrash": "移到垃圾桶"
   }
 }

@@ -159,6 +159,38 @@ impl SearchState {
         }
     }
 
+    /// Paths in the index whose names match `query` (Cardinal query syntax),
+    /// at most `limit`. Used to find app leftovers outside the usual folders.
+    pub(crate) fn find_paths(&self, query: String, limit: usize) -> Vec<std::path::PathBuf> {
+        let (result_tx, result_rx) = bounded(1);
+        let job = SearchJob {
+            query: SearchQuery {
+                directory_query: None,
+                query: Some(query),
+            },
+            options: SearchOptionsPayload {
+                case_insensitive: true,
+            },
+            cancellation_token: CancellationToken::new_search(),
+            result_tx,
+        };
+        if self.search_tx.send(job).is_err() {
+            return Vec::new();
+        }
+        let Ok(Ok(SearchOutcome {
+            nodes: Some(mut nodes),
+            ..
+        })) = result_rx.recv_timeout(std::time::Duration::from_secs(10))
+        else {
+            return Vec::new();
+        };
+        nodes.truncate(limit);
+        self.request_nodes(nodes)
+            .into_iter()
+            .map(|node| node.path)
+            .collect()
+    }
+
     fn request_nodes(&self, slab_indices: Vec<SlabIndex>) -> Vec<SearchResultNode> {
         if slab_indices.is_empty() {
             return Vec::new();

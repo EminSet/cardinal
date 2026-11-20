@@ -4,7 +4,8 @@
       "files": "파일과 폴더 검색...",
       "events": "경로 또는 이름으로 이벤트 필터링...",
       "directory": "폴더 범위...",
-      "sizes": "이름으로 폴더와 파일 필터링..."
+      "sizes": "이름으로 폴더와 파일 필터링...",
+      "apps": "이름이나 번들 ID로 앱 필터링..."
     },
     "options": {
       "caseSensitive": "대소문자 구분 검색 전환",
@@ -87,7 +88,8 @@
     "tabs": {
       "files": "파일",
       "events": "이벤트",
-      "sizes": "크기"
+      "sizes": "크기",
+      "apps": "앱"
     },
     "lifecycle": {
       "Initializing": "초기화 중",
@@ -443,5 +445,69 @@
       "hint": "현재 여유: {{now}}. Finder 값은 제거 가능한 공간도 포함합니다.",
       "trashHint": "휴지통으로 옮긴 항목은 휴지통을 비워야 공간이 확보됩니다."
     }
+  },
+  "apps": {
+    "listLabel": "설치된 앱",
+    "count_one": "앱 {{formatted}}개",
+    "count_other": "앱 {{formatted}}개",
+    "loading": "앱 목록을 만드는 중…",
+    "running": "실행 중",
+    "leftoverEstimate": "+{{size}} 잔여물",
+    "analyzing": "이 앱이 남긴 모든 것을 찾는 중…",
+    "pick": "앱을 선택하면 설치하고 남긴 모든 것을 볼 수 있습니다.",
+    "selectRecommended": "권장 항목 선택",
+    "selectAll": "모두 선택",
+    "kinds": {
+      "appBundle": "응용 프로그램",
+      "support": "Application Support",
+      "cache": "캐시",
+      "preferences": "환경설정",
+      "container": "컨테이너",
+      "savedState": "저장된 상태",
+      "logs": "로그",
+      "webData": "웹 데이터 및 쿠키",
+      "launchItem": "실행 에이전트 및 데몬",
+      "helper": "권한 있는 도우미",
+      "receipt": "패키지가 설치함",
+      "other": "디스크의 다른 위치"
+    },
+    "confidence": {
+      "certain": "확실",
+      "likely": "가능성 높음",
+      "possible": "가능성 있음"
+    },
+    "adminHint": "관리자 권한이 필요합니다. macOS가 암호를 요청합니다.",
+    "reveal": "Finder에서 보기",
+    "receiptsTitle": "설치 프로그램 영수증 (제거 후 삭제)",
+    "selected_one": "항목 {{count}}개 (잔여물 {{leftovers}}개) · {{size}}",
+    "selected_other": "항목 {{count}}개 (잔여물 {{leftovers}}개) · {{size}}",
+    "adminCount_one": "{{count}}개 항목에 관리자 권한 필요",
+    "adminCount_other": "{{count}}개 항목에 관리자 권한 필요",
+    "removing": "휴지통으로 이동 중…",
+    "remove": "휴지통으로 이동 ({{size}})",
+    "confirm": {
+      "title_one": "{{name}}을(를) 제거할까요? 항목 {{count}}개({{size}})가 휴지통으로 이동합니다.",
+      "title_other": "{{name}}을(를) 제거할까요? 항목 {{count}}개({{size}})가 휴지통으로 이동합니다.",
+      "more_one": "…외 {{count}}개",
+      "more_other": "…외 {{count}}개",
+      "admin_one": "{{count}}개 항목에 관리자 권한이 필요합니다. macOS가 암호를 요청합니다.",
+      "admin_other": "{{count}}개 항목에 관리자 권한이 필요합니다. macOS가 암호를 요청합니다.",
+      "trashNote": "영구적으로 삭제되는 것은 없습니다. 공간을 확보하려면 휴지통을 비우세요."
+    },
+    "errors": {
+      "running": "제거하기 전에 앱(과 메뉴 막대 도우미)을 종료하세요."
+    },
+    "report": {
+      "moved_one": "항목 {{count}}개를 휴지통으로 이동했습니다.",
+      "moved_other": "항목 {{count}}개를 휴지통으로 이동했습니다.",
+      "receipts_one": "설치 영수증 {{count}}개를 삭제했습니다.",
+      "receipts_other": "설치 영수증 {{count}}개를 삭제했습니다.",
+      "adminCancelled": "관리자 접근이 취소되어 권한이 필요한 항목은 그대로 남았습니다.",
+      "emptyTrash": "공간을 확보하려면 휴지통을 비우세요."
+    }
+  },
+  "dialog": {
+    "cancel": "취소",
+    "moveToTrash": "휴지통으로 이동"
   }
 }

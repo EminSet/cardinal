@@ -176,3 +176,8 @@ fn important_usage_capacity(path: &Path) -> Option<u64> {
     let number = value?.downcast::<NSNumber>().ok()?;
     u64::try_from(number.longLongValue()).ok()
 }
+
+/// Size of a path from the live size tree, if it has been scanned.
+pub fn size_of(path: &Path) -> Option<u64> {
+    ENGINE.size_of(path)
+}
