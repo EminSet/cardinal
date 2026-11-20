@@ -192,6 +192,18 @@ fn perform(items: &[apps::Leftover], receipts: &[String], bundle_id: &str) -> Un
     report
 }
 
+/// `Name (tag).ext`, keeping the extension so Finder still sees an app or plist.
+fn trash_name(path: &Path, tag: &str) -> String {
+    let stem = path
+        .file_stem()
+        .map(|n| n.to_string_lossy().into_owned())
+        .unwrap_or_default();
+    match path.extension() {
+        Some(ext) => format!("{stem} ({tag}).{}", ext.to_string_lossy()),
+        None => format!("{stem} ({tag})"),
+    }
+}
+
 fn shell_quote(s: &str) -> String {
     format!("'{}'", s.replace('\'', "'\\''"))
 }
@@ -217,11 +229,7 @@ fn run_privileged(
     let mut script = String::from("set +e; ");
     for (index, item) in items.iter().enumerate() {
         let path = Path::new(&item.path);
-        let name = path
-            .file_name()
-            .map(|n| n.to_string_lossy().into_owned())
-            .unwrap_or_default();
-        let dest = trash.join(format!("{name} (Cardinal {stamp}-{index})"));
+        let dest = trash.join(trash_name(path, &format!("Cardinal {stamp}-{index}")));
         let (src, dst) = (
             shell_quote(&item.path),
             shell_quote(&dest.to_string_lossy()),
@@ -312,6 +320,22 @@ mod tests {
                 .replace("\\\\", "")
                 .replace("\\\"", "")
                 .contains('"')
+        );
+    }
+
+    #[test]
+    fn trash_names_keep_the_extension() {
+        assert_eq!(
+            trash_name(Path::new("/Applications/A B.app"), "Cardinal 1-0"),
+            "A B (Cardinal 1-0).app"
+        );
+        assert_eq!(
+            trash_name(Path::new("/Library/LaunchDaemons/com.x.y.plist"), "t"),
+            "com.x.y (t).plist"
+        );
+        assert_eq!(
+            trash_name(Path::new("/Library/Application Support/Foo"), "t"),
+            "Foo (t)"
         );
     }
 
