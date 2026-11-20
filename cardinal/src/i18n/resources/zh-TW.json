@@ -311,7 +311,24 @@
       "cancelSearch": "取消搜索",
       "cancelSort": "取消排序",
       "rescan": "重新掃描",
-      "idle": "沒有長期運營."
+      "idle": "沒有長期運營.",
+      "history": {
+        "title": "歷史記錄",
+        "empty": "尚無已記錄的垃圾桶操作。",
+        "reveal": "在 Finder 中顯示記錄檔",
+        "items_one": "{{count}} 項",
+        "items_other": "{{count}} 項",
+        "failed_one": "{{count}} 項失敗",
+        "failed_other": "{{count}} 項失敗",
+        "toTrash": "在垃圾桶中名為「{{name}}」",
+        "receipts_one": "已清除 {{count}} 個安裝收據",
+        "receipts_other": "已清除 {{count}} 個安裝收據",
+        "sources": {
+          "contextMenu": "移到垃圾桶",
+          "appUninstall": "解除安裝 App",
+          "orphans": "孤立殘留"
+        }
+      }
     }
   },
   "sizes": {

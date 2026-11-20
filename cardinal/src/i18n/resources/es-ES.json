@@ -312,7 +312,24 @@
       "cancelSearch": "Cancel search",
       "cancelSort": "Cancelar ordenación",
       "rescan": "Volver a analizar",
-      "idle": "No hay operaciones de larga duración."
+      "idle": "No hay operaciones de larga duración.",
+      "history": {
+        "title": "Historial",
+        "empty": "Aún no hay operaciones de Papelera registradas.",
+        "reveal": "Mostrar archivo de registro en Finder",
+        "items_one": "{{count}} elemento",
+        "items_other": "{{count}} elementos",
+        "failed_one": "{{count}} fallido",
+        "failed_other": "{{count}} fallidos",
+        "toTrash": "en la Papelera como «{{name}}»",
+        "receipts_one": "{{count}} recibo de instalación olvidado",
+        "receipts_other": "{{count}} recibos de instalación olvidados",
+        "sources": {
+          "contextMenu": "Mover a la Papelera",
+          "appUninstall": "Desinstalación de app",
+          "orphans": "Restos huérfanos"
+        }
+      }
     }
   },
   "sizes": {

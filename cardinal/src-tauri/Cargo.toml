@@ -52,6 +52,9 @@ search-cancel.path = "../../search-cancel"
 folder-size.path = "../../folder-size"
 camino = "1.2.1"
 
+[dev-dependencies]
+tempfile = "3"
+
 [features]
 default = []
 # https://v2.tauri.app/develop/debug/#enable-devtools-feature

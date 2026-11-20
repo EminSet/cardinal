@@ -302,7 +302,24 @@
       "cancelSearch": "खोज रद्द करना",
       "cancelSort": "क्रमबद्ध करना रद्द करें",
       "rescan": "रेस्कन",
-      "idle": "लंबे समय तक चलने वाले ऑपरेशन नहीं।"
+      "idle": "लंबे समय तक चलने वाले ऑपरेशन नहीं।",
+      "history": {
+        "title": "इतिहास",
+        "empty": "अभी तक कोई ट्रैश कार्रवाई दर्ज नहीं हुई।",
+        "reveal": "लॉग फ़ाइल Finder में दिखाएँ",
+        "items_one": "{{count}} आइटम",
+        "items_other": "{{count}} आइटम",
+        "failed_one": "{{count}} विफल",
+        "failed_other": "{{count}} विफल",
+        "toTrash": "ट्रैश में “{{name}}” नाम से",
+        "receipts_one": "{{count}} इंस्टॉलर रसीद भुलाई गई",
+        "receipts_other": "{{count}} इंस्टॉलर रसीदें भुलाई गईं",
+        "sources": {
+          "contextMenu": "ट्रैश में ले जाना",
+          "appUninstall": "ऐप हटाना",
+          "orphans": "अनाथ बचे हुए आइटम"
+        }
+      }
     }
   },
   "sizes": {

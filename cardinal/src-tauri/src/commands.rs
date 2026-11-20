@@ -712,10 +712,27 @@ fn validate_trash_paths(paths: &[String]) -> Result<Vec<PathBuf>, String> {
 pub async fn move_to_trash(paths: Vec<String>) -> Result<(), String> {
     let validated = validate_trash_paths(&paths)?;
     let trashed = validated.clone();
-    tauri::async_runtime::spawn_blocking(move || trash::delete_all(validated))
+    let result = tauri::async_runtime::spawn_blocking(move || trash::delete_all(validated))
         .await
         .map_err(|error| format!("Trash operation failed: {error}"))?
-        .map_err(|error| format!("Could not move item to Trash: {error}"))?;
+        .map_err(|error| format!("Could not move item to Trash: {error}"));
+    let logged = trashed
+        .iter()
+        .map(|path| crate::operation_log::LoggedItem {
+            path: path.to_string(),
+            trashed_to: None,
+            size: crate::folder_sizes::size_of(path.as_std_path()),
+            admin: false,
+            ok: result.is_ok(),
+            error: result.as_ref().err().cloned(),
+        })
+        .collect();
+    crate::operation_log::record(crate::operation_log::LogEntry::now(
+        crate::operation_log::Source::ContextMenu,
+        None,
+        logged,
+    ));
+    result?;
     crate::folder_sizes::forget_paths(&trashed);
     Ok(())
 }

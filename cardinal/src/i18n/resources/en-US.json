@@ -296,7 +296,24 @@
       "cancelSearch": "Cancel search",
       "cancelSort": "Cancel sorting",
       "rescan": "Rescan",
-      "idle": "No long-running operations."
+      "idle": "No long-running operations.",
+      "history": {
+        "title": "History",
+        "empty": "No Trash operations recorded yet.",
+        "reveal": "Show log file in Finder",
+        "items_one": "{{count}} item",
+        "items_other": "{{count}} items",
+        "failed_one": "{{count}} failed",
+        "failed_other": "{{count}} failed",
+        "toTrash": "in Trash as “{{name}}”",
+        "receipts_one": "{{count}} installer receipt forgotten",
+        "receipts_other": "{{count}} installer receipts forgotten",
+        "sources": {
+          "contextMenu": "Move to Trash",
+          "appUninstall": "App uninstall",
+          "orphans": "Orphaned leftovers"
+        }
+      }
     },
     "duplicates": {
       "explanation": "Analyze the current file results by size and content. APFS clones, hard links, and physical copies are identified separately when macOS exposes reliable clone mapping.",

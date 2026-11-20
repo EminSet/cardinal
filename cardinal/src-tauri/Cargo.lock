@@ -414,6 +414,7 @@ dependencies = [
  "tauri-plugin-opener",
  "tauri-plugin-prevent-default",
  "tauri-plugin-window-state",
+ "tempfile",
  "tracing",
  "tracing-subscriber",
  "trash",

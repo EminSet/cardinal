@@ -312,7 +312,24 @@
       "cancelSearch": "Пошук",
       "cancelSort": "Скасування сортування",
       "rescan": "Редакція",
-      "idle": "Без тривалих операцій."
+      "idle": "Без тривалих операцій.",
+      "history": {
+        "title": "Історія",
+        "empty": "Операцій із Кошиком ще не записано.",
+        "reveal": "Показати файл журналу у Finder",
+        "items_one": "Об'єктів: {{count}}",
+        "items_other": "Об'єктів: {{count}}",
+        "failed_one": "Помилок: {{count}}",
+        "failed_other": "Помилок: {{count}}",
+        "toTrash": "у Кошику як «{{name}}»",
+        "receipts_one": "Видалено квитанцій інсталятора: {{count}}",
+        "receipts_other": "Видалено квитанцій інсталятора: {{count}}",
+        "sources": {
+          "contextMenu": "Переміщення в Кошик",
+          "appUninstall": "Видалення програми",
+          "orphans": "Залишки без власника"
+        }
+      }
     }
   },
   "sizes": {

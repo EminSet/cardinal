@@ -312,7 +312,24 @@
       "cancelSearch": "Suche abbrechen",
       "cancelSort": "Sortierung abbrechen",
       "rescan": "Erneut scannen",
-      "idle": "Keine langfristigen Operationen."
+      "idle": "Keine langfristigen Operationen.",
+      "history": {
+        "title": "Verlauf",
+        "empty": "Noch keine Papierkorb-Vorgänge aufgezeichnet.",
+        "reveal": "Protokolldatei im Finder zeigen",
+        "items_one": "{{count}} Objekt",
+        "items_other": "{{count}} Objekte",
+        "failed_one": "{{count}} fehlgeschlagen",
+        "failed_other": "{{count}} fehlgeschlagen",
+        "toTrash": "im Papierkorb als „{{name}}“",
+        "receipts_one": "{{count}} Installationsbeleg entfernt",
+        "receipts_other": "{{count}} Installationsbelege entfernt",
+        "sources": {
+          "contextMenu": "In den Papierkorb",
+          "appUninstall": "App-Deinstallation",
+          "orphans": "Verwaiste Reste"
+        }
+      }
     }
   },
   "sizes": {

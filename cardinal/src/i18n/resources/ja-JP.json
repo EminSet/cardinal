@@ -312,7 +312,24 @@
       "cancelSearch": "キャンセル検索",
       "cancelSort": "並べ替えをキャンセル",
       "rescan": "リスカ",
-      "idle": "長時間の運転は行いません。"
+      "idle": "長時間の運転は行いません。",
+      "history": {
+        "title": "履歴",
+        "empty": "記録されたゴミ箱の操作はまだありません。",
+        "reveal": "ログファイルを Finder で表示",
+        "items_one": "{{count}} 項目",
+        "items_other": "{{count}} 項目",
+        "failed_one": "{{count}} 件失敗",
+        "failed_other": "{{count}} 件失敗",
+        "toTrash": "ゴミ箱内の名前:「{{name}}」",
+        "receipts_one": "インストーラのレシートを {{count}} 件消去",
+        "receipts_other": "インストーラのレシートを {{count}} 件消去",
+        "sources": {
+          "contextMenu": "ゴミ箱に移動",
+          "appUninstall": "アプリのアンインストール",
+          "orphans": "持ち主のいない残骸"
+        }
+      }
     }
   },
   "sizes": {

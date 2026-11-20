@@ -312,7 +312,24 @@
       "cancelSearch": "إلغاء البحث",
       "cancelSort": "إلغاء الترتيب",
       "rescan": "إعادة الفحص",
-      "idle": "لا عمليات طويلة المدى."
+      "idle": "لا عمليات طويلة المدى.",
+      "history": {
+        "title": "السجل",
+        "empty": "لم تُسجّل أي عمليات على سلة المهملات بعد.",
+        "reveal": "إظهار ملف السجل في Finder",
+        "items_one": "{{count}} عنصر",
+        "items_other": "{{count}} عناصر",
+        "failed_one": "فشل {{count}}",
+        "failed_other": "فشلت {{count}}",
+        "toTrash": "في سلة المهملات باسم «{{name}}»",
+        "receipts_one": "نُسي {{count}} إيصال تثبيت",
+        "receipts_other": "نُسيت {{count}} إيصالات تثبيت",
+        "sources": {
+          "contextMenu": "النقل إلى سلة المهملات",
+          "appUninstall": "إزالة تطبيق",
+          "orphans": "بقايا يتيمة"
+        }
+      }
     }
   },
   "sizes": {

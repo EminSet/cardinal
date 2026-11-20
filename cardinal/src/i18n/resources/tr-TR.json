@@ -296,7 +296,24 @@
       "cancelSearch": "Aramayı iptal et",
       "cancelSort": "Sıralamayı iptal et",
       "rescan": "Yeniden tara",
-      "idle": "Bekleyen uzun işlem yok."
+      "idle": "Bekleyen uzun işlem yok.",
+      "history": {
+        "title": "Geçmiş",
+        "empty": "Henüz kaydedilmiş Çöp işlemi yok.",
+        "reveal": "Kayıt dosyasını Finder'da göster",
+        "items_one": "{{count}} öğe",
+        "items_other": "{{count}} öğe",
+        "failed_one": "{{count}} başarısız",
+        "failed_other": "{{count}} başarısız",
+        "toTrash": "Çöp'te “{{name}}” adıyla",
+        "receipts_one": "{{count}} yükleyici kaydı silindi",
+        "receipts_other": "{{count}} yükleyici kaydı silindi",
+        "sources": {
+          "contextMenu": "Çöp'e taşıma",
+          "appUninstall": "Uygulama kaldırma",
+          "orphans": "Sahipsiz kalıntılar"
+        }
+      }
     },
     "duplicates": {
       "explanation": "Geçerli dosya sonuçlarını boyut ve içeriğe göre inceleyin. macOS güvenilir klon haritası sunduğunda APFS klonları, sabit bağlantılar ve fiziksel kopyalar ayrı gösterilir.",

@@ -5,6 +5,7 @@ mod dialogs;
 mod duplicate_files;
 mod folder_sizes;
 mod lifecycle;
+mod operation_log;
 mod quicklook;
 mod renderer_health;
 mod renderer_watchdog;
@@ -182,6 +183,8 @@ pub fn run() -> Result<()> {
             app_uninstall::remove_orphans,
             dialogs::confirm_dialog,
             dialogs::message_dialog,
+            operation_log::get_operation_log,
+            operation_log::get_operation_log_path,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -193,6 +196,9 @@ pub fn run() -> Result<()> {
 
     let app_handle = app.handle().to_owned();
     renderer_watchdog::start(app_handle.clone());
+    if let Ok(log_dir) = app.path().app_log_dir() {
+        operation_log::init(&app_handle, log_dir);
+    }
     let channels = BackgroundLoopChannels {
         finish_rx,
         search_rx,

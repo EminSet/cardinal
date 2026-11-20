@@ -312,7 +312,24 @@
       "cancelSearch": "자주 묻는 질문",
       "cancelSort": "정렬 취소",
       "rescan": "사이트맵",
-      "idle": "긴 가동 없음."
+      "idle": "긴 가동 없음.",
+      "history": {
+        "title": "기록",
+        "empty": "아직 기록된 휴지통 작업이 없습니다.",
+        "reveal": "로그 파일을 Finder에서 보기",
+        "items_one": "항목 {{count}}개",
+        "items_other": "항목 {{count}}개",
+        "failed_one": "{{count}}개 실패",
+        "failed_other": "{{count}}개 실패",
+        "toTrash": "휴지통에 “{{name}}”(으)로 있음",
+        "receipts_one": "설치 영수증 {{count}}개 삭제",
+        "receipts_other": "설치 영수증 {{count}}개 삭제",
+        "sources": {
+          "contextMenu": "휴지통으로 이동",
+          "appUninstall": "앱 제거",
+          "orphans": "주인 없는 잔여물"
+        }
+      }
     }
   },
   "sizes": {

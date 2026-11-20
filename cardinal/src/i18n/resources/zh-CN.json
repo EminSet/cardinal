@@ -311,7 +311,24 @@
       "cancelSearch": "取消搜索",
       "cancelSort": "取消排序",
       "rescan": "重新扫描",
-      "idle": "没有长期运营."
+      "idle": "没有长期运营.",
+      "history": {
+        "title": "历史",
+        "empty": "尚无已记录的废纸篓操作。",
+        "reveal": "在 Finder 中显示日志文件",
+        "items_one": "{{count}} 项",
+        "items_other": "{{count}} 项",
+        "failed_one": "{{count}} 项失败",
+        "failed_other": "{{count}} 项失败",
+        "toTrash": "在废纸篓中名为“{{name}}”",
+        "receipts_one": "已清除 {{count}} 个安装收据",
+        "receipts_other": "已清除 {{count}} 个安装收据",
+        "sources": {
+          "contextMenu": "移到废纸篓",
+          "appUninstall": "卸载应用",
+          "orphans": "孤立残留"
+        }
+      }
     }
   },
   "sizes": {

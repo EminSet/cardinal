@@ -5,7 +5,7 @@
 //! single privileged step that macOS authorises with its own password dialog.
 //! Only paths produced by the latest `analyze_app` for the same app are accepted.
 
-use crate::{commands::SearchState, folder_sizes};
+use crate::{commands::SearchState, folder_sizes, operation_log};
 use folder_size::{
     apps::{
         self, AppPlan, AppSummary, Locations, analyze, is_running, needs_admin, read_bundle,
@@ -99,6 +99,41 @@ pub struct UninstallReport {
     pub receipts_forgotten: Vec<String>,
     /// The macOS administrator dialog was shown and cancelled.
     pub admin_cancelled: bool,
+    /// Original path -> tagged name in the Trash, for items moved with admin rights.
+    #[serde(skip)]
+    pub destinations: HashMap<String, String>,
+    /// Items that went through the administrator step.
+    #[serde(skip)]
+    pub via_admin: HashSet<String>,
+}
+
+/// Turns a removal into an operation log entry.
+fn log_removal(
+    source: operation_log::Source,
+    app: Option<String>,
+    items: &[apps::Leftover],
+    report: &UninstallReport,
+) {
+    let logged = items
+        .iter()
+        .map(|item| {
+            let failure = report.failed.iter().find(|f| f.path == item.path);
+            let ok = failure.is_none() && report.moved.contains(&item.path);
+            operation_log::LoggedItem {
+                path: item.path.clone(),
+                trashed_to: ok
+                    .then(|| report.destinations.get(&item.path).cloned())
+                    .flatten(),
+                size: Some(item.size),
+                admin: report.via_admin.contains(&item.path),
+                ok,
+                error: failure.map(|f| f.reason.clone()),
+            }
+        })
+        .collect();
+    let mut entry = operation_log::LogEntry::now(source, app, logged);
+    entry.receipts = report.receipts_forgotten.clone();
+    operation_log::record(entry);
 }
 
 fn is_protected(path: &Path) -> bool {
@@ -145,12 +180,19 @@ pub async fn uninstall_app(
         return Err("app_running".into());
     }
     let bundle_id = plan.app.bundle_id.clone();
+    let logged_items = selected.clone();
     let report = tauri::async_runtime::spawn_blocking(move || {
         perform(&selected, &receipts, Some(&bundle_id))
     })
     .await
     .map_err(|e| format!("Removal failed: {e}"))?;
     folder_sizes::forget_paths(&report.moved);
+    log_removal(
+        operation_log::Source::AppUninstall,
+        Some(format!("{} ({})", plan.app.name, plan.app.bundle_id)),
+        &logged_items,
+        &report,
+    );
     PLANS.lock().remove(&path);
     info!(app = %plan.app.bundle_id, moved = report.moved.len(), failed = report.failed.len(), "app removed");
     Ok(report)
@@ -195,10 +237,12 @@ pub async fn remove_orphans(items: Vec<String>) -> Result<UninstallReport, Strin
     if selected.is_empty() {
         return Err("Nothing selected".into());
     }
+    let logged_items = selected.clone();
     let result = tauri::async_runtime::spawn_blocking(move || perform(&selected, &[], None))
         .await
         .map_err(|e| format!("Removal failed: {e}"))?;
     folder_sizes::forget_paths(&result.moved);
+    log_removal(operation_log::Source::Orphans, None, &logged_items, &result);
     *ORPHANS.lock() = None;
     info!(
         moved = result.moved.len(),
@@ -304,6 +348,10 @@ fn run_privileged(
     for (index, item) in items.iter().enumerate() {
         let path = Path::new(&item.path);
         let dest = trash.join(trash_name(path, &format!("Cardinal {stamp}-{index}")));
+        report.via_admin.insert(item.path.clone());
+        report
+            .destinations
+            .insert(item.path.clone(), dest.to_string_lossy().into_owned());
         let (src, dst) = (
             shell_quote(&item.path),
             shell_quote(&dest.to_string_lossy()),
@@ -362,6 +410,7 @@ fn run_privileged(
         if lines.contains(&format!("OK:{index}").as_str()) {
             report.moved.push(item.path.clone());
         } else {
+            report.destinations.remove(&item.path);
             report.failed.push(FailedItem {
                 path: item.path.clone(),
                 reason: "move_failed".into(),

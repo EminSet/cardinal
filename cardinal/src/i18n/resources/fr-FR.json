@@ -312,7 +312,24 @@
       "cancelSearch": "Annuler la recherche",
       "cancelSort": "Annuler le tri",
       "rescan": "Réscan",
-      "idle": "Pas d'opérations de longue durée."
+      "idle": "Pas d'opérations de longue durée.",
+      "history": {
+        "title": "Historique",
+        "empty": "Aucune opération de Corbeille enregistrée.",
+        "reveal": "Afficher le fichier journal dans le Finder",
+        "items_one": "{{count}} élément",
+        "items_other": "{{count}} éléments",
+        "failed_one": "{{count}} échec",
+        "failed_other": "{{count}} échecs",
+        "toTrash": "dans la Corbeille sous « {{name}} »",
+        "receipts_one": "{{count}} reçu d'installation oublié",
+        "receipts_other": "{{count}} reçus d'installation oubliés",
+        "sources": {
+          "contextMenu": "Placement dans la Corbeille",
+          "appUninstall": "Désinstallation d'app",
+          "orphans": "Restes orphelins"
+        }
+      }
     }
   },
   "sizes": {
