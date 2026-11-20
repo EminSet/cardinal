@@ -436,6 +436,30 @@
       "installer": {
         "title": "安裝檔",
         "detail": "App 安裝後就不需要了。"
+      },
+      "oldExtensions": {
+        "title": "舊版編輯器延伸功能",
+        "detail": "VS Code / Cursor / Antigravity 延伸功能中已被取代的版本；編輯器使用最新版本。"
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome Service Worker 快取",
+        "detail": "網站的離線快取；會重新建立，但在再次造訪前網站的離線資料會遺失。"
+      },
+      "pnpmStore": {
+        "title": "pnpm 套件儲存區",
+        "detail": "共用套件儲存區；專案會在下次安裝時重新下載套件。`pnpm store prune` 只移除未使用的套件。"
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater 快取",
+        "detail": "Google App 已下載的更新套件；需要時會重新下載。"
+      },
+      "editorCache": {
+        "title": "編輯器快取",
+        "detail": "VS Code / Cursor / Antigravity 快取；編輯器啟動時重新建立。請先結束編輯器。"
+      },
+      "clangModuleCache": {
+        "title": "Clang 模組快取",
+        "detail": "Xcode/clang 的已編譯模組快取；下次建置時重新建立。"
       }
     },
     "space": {

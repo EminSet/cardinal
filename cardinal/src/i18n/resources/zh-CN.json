@@ -436,6 +436,30 @@
       "installer": {
         "title": "安装文件",
         "detail": "应用安装后就不需要了。"
+      },
+      "oldExtensions": {
+        "title": "旧版编辑器扩展",
+        "detail": "VS Code / Cursor / Antigravity 扩展中已被替换的版本；编辑器使用最新版本。"
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome Service Worker 缓存",
+        "detail": "网站的离线缓存；会重新生成，但在再次访问前网站的离线数据会丢失。"
+      },
+      "pnpmStore": {
+        "title": "pnpm 包存储",
+        "detail": "共享包存储；项目会在下次安装时重新下载包。`pnpm store prune` 只移除未使用的包。"
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater 缓存",
+        "detail": "Google 应用已下载的更新包；需要时会重新下载。"
+      },
+      "editorCache": {
+        "title": "编辑器缓存",
+        "detail": "VS Code / Cursor / Antigravity 缓存；编辑器启动时重新生成。请先退出编辑器。"
+      },
+      "clangModuleCache": {
+        "title": "Clang 模块缓存",
+        "detail": "Xcode/clang 的已编译模块缓存；下次构建时重新生成。"
       }
     },
     "space": {

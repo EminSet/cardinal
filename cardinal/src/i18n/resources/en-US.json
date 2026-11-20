@@ -437,6 +437,30 @@
       "installer": {
         "title": "Installer file",
         "detail": "Not needed once the app is installed."
+      },
+      "oldExtensions": {
+        "title": "Old editor extension versions",
+        "detail": "Superseded versions of VS Code / Cursor / Antigravity extensions; the editor uses the newest one."
+      },
+      "chromeServiceWorker": {
+        "title": "Chrome Service Worker cache",
+        "detail": "Websites' offline caches; they are rebuilt, but sites lose offline data until revisited."
+      },
+      "pnpmStore": {
+        "title": "pnpm package store",
+        "detail": "Shared package store; projects re-download packages on the next install. `pnpm store prune` removes only unused ones."
+      },
+      "googleUpdaterCache": {
+        "title": "Google Updater cache",
+        "detail": "Downloaded update packages of Google apps; fetched again when needed."
+      },
+      "editorCache": {
+        "title": "Editor cache",
+        "detail": "VS Code / Cursor / Antigravity caches; rebuilt when the editor starts. Quit the editor first."
+      },
+      "clangModuleCache": {
+        "title": "Clang module cache",
+        "detail": "Compiled module cache of Xcode/clang; rebuilt on the next build."
       }
     },
     "space": {
