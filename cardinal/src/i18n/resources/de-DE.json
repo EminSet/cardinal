@@ -436,6 +436,12 @@
         "title": "Installationsdatei",
         "detail": "Nach der Installation der App nicht mehr nötig."
       }
+    },
+    "space": {
+      "free": "Frei: {{free}} von {{total}}",
+      "trash": "Papierkorb: {{size}}",
+      "hint": "Jetzt frei: {{now}}. Der Finder-Wert zählt auch löschbaren Speicher mit.",
+      "trashHint": "In den Papierkorb gelegte Objekte geben erst nach dem Entleeren Speicher frei."
     }
   }
 }

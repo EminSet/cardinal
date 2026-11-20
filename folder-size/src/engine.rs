@@ -52,6 +52,9 @@ pub struct Status {
     pub pending_updates: usize,
     /// Increases whenever the tree changes; the UI refetches on change.
     pub version: u64,
+    /// Size of `~/.Trash` when it is inside the scanned tree. Items moved to
+    /// the Trash only free disk space once the Trash is emptied.
+    pub trash_size: Option<u64>,
 }
 
 struct Running {
@@ -141,6 +144,9 @@ impl SizeEngine {
             from_snapshot: st.from_snapshot,
             pending_updates: st.dirty.len(),
             version: self.version.load(Ordering::SeqCst),
+            trash_size: tree
+                .and_then(|t| t.get(&self.home.join(".Trash")))
+                .map(|d| d.size),
         }
     }
 

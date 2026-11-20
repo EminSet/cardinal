@@ -436,6 +436,12 @@
         "title": "Arquivo instalador",
         "detail": "Desnecessário depois que o app é instalado."
       }
+    },
+    "space": {
+      "free": "Livre: {{free}} de {{total}}",
+      "trash": "Lixo: {{size}}",
+      "hint": "Livre agora: {{now}}. O valor do Finder também conta o espaço purgável.",
+      "trashHint": "Itens movidos para o Lixo só liberam espaço quando ele é esvaziado."
     }
   }
 }

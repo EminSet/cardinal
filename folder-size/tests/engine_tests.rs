@@ -254,3 +254,13 @@ fn unreadable_directories_are_counted() {
     fs::set_permissions(root.join("locked"), fs::Permissions::from_mode(0o755)).unwrap();
     assert!(engine.status().unreadable_count >= 1);
 }
+
+#[test]
+fn trash_size_reported_when_home_trash_is_in_tree() {
+    let (_tmp, root) = fixture();
+    write(&root, ".Trash/old.bin", 3 * MB);
+    // Treat the fixture root as the home folder.
+    let engine = scanned(&root);
+    let trash = engine.status().trash_size.expect("trash inside tree");
+    assert!(trash >= 3 * MB as u64);
+}

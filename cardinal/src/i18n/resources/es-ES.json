@@ -436,6 +436,12 @@
         "title": "Archivo instalador",
         "detail": "No hace falta una vez instalada la app."
       }
+    },
+    "space": {
+      "free": "Libre: {{free}} de {{total}}",
+      "trash": "Papelera: {{size}}",
+      "hint": "Libre ahora: {{now}}. La cifra de Finder también cuenta el espacio purgable.",
+      "trashHint": "Lo que mueves a la Papelera libera espacio solo al vaciarla."
     }
   }
 }

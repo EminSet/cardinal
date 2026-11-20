@@ -2922,10 +2922,52 @@ button:active:not(:disabled) {
   color: var(--color-muted);
 }
 
+.sizes-status > span:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .sizes-status .sizes-link {
-  margin-left: auto;
   border: none;
   background: transparent;
   color: var(--color-accent);
   padding: 0;
+}
+
+.sizes-space {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.sizes-space__bar {
+  width: 90px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.sizes-space__bar > span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+
+.sizes-space.is-low .sizes-space__bar > span {
+  background: #e53e3e;
+}
+
+.sizes-space.is-low > span:first-child {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+.sizes-space__trash {
+  color: var(--color-muted);
 }

@@ -436,6 +436,12 @@
         "title": "Fichier d'installation",
         "detail": "Inutile une fois l'app installée."
       }
+    },
+    "space": {
+      "free": "Libre : {{free}} sur {{total}}",
+      "trash": "Corbeille : {{size}}",
+      "hint": "Libre maintenant : {{now}}. Le chiffre du Finder inclut l'espace purgeable.",
+      "trashHint": "Les éléments placés dans la Corbeille ne libèrent de l'espace qu'une fois vidée."
     }
   }
 }

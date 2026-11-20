@@ -436,6 +436,12 @@
         "title": "Installer file",
         "detail": "Not needed once the app is installed."
       }
+    },
+    "space": {
+      "free": "Free: {{free}} of {{total}}",
+      "trash": "Trash: {{size}}",
+      "hint": "Available now: {{now}}. Finder's figure also counts purgeable space.",
+      "trashHint": "Items moved to the Trash free space only after you empty it."
     }
   }
 }

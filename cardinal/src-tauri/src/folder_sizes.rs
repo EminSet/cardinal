@@ -6,7 +6,7 @@
 //! and shown immediately on the next launch, followed by a fresh scan.
 
 use cardinal_sdk::{EventFlag, FsEvent, ScanType};
-use folder_size::{Listing, SizeEngine, Status, Suggestion};
+use folder_size::{Listing, SizeEngine, Status, Suggestion, VolumeSpace, volume_space};
 use once_cell::sync::{Lazy, OnceCell};
 use std::{
     path::{Path, PathBuf},
@@ -141,4 +141,38 @@ pub fn get_size_listing(path: String, nested: Option<bool>) -> Option<Listing> {
 #[tauri::command]
 pub fn get_size_suggestions() -> Vec<Suggestion> {
     ENGINE.suggestions()
+}
+
+/// Free and total space of the volume holding `path` (the scanned root by default).
+#[tauri::command]
+pub fn get_volume_space(path: Option<String>) -> Option<VolumeSpace> {
+    let path = path
+        .map(PathBuf::from)
+        .or_else(|| ENGINE.root_path())
+        .or_else(|| std::env::var_os("HOME").map(PathBuf::from))?;
+    let mut space = volume_space(&path)?;
+    space.available_for_important_usage = important_usage_capacity(&path);
+    Some(space)
+}
+
+/// `NSURLVolumeAvailableCapacityForImportantUsageKey`: the "available" figure
+/// Finder shows, which includes purgeable space macOS can reclaim on demand.
+fn important_usage_capacity(path: &Path) -> Option<u64> {
+    use objc2::{rc::Retained, runtime::AnyObject};
+    use objc2_foundation::{
+        NSNumber, NSString, NSURL, NSURLVolumeAvailableCapacityForImportantUsageKey,
+    };
+
+    let url = NSURL::fileURLWithPath(&NSString::from_str(&path.to_string_lossy()));
+    let mut value: Option<Retained<AnyObject>> = None;
+    // SAFETY: the key is a valid NSURLResourceKey constant; `value` is an out-parameter.
+    unsafe {
+        url.getResourceValue_forKey_error(
+            &mut value,
+            NSURLVolumeAvailableCapacityForImportantUsageKey,
+        )
+        .ok()?;
+    }
+    let number = value?.downcast::<NSNumber>().ok()?;
+    u64::try_from(number.longLongValue()).ok()
 }

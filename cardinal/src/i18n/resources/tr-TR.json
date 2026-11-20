@@ -436,6 +436,12 @@
         "title": "Kurulum dosyası",
         "detail": "Uygulama kurulduktan sonra gerekmez."
       }
+    },
+    "space": {
+      "free": "Boş: {{free}} / {{total}}",
+      "trash": "Çöp: {{size}}",
+      "hint": "Şu an boş: {{now}}. Finder'daki değer, sistemin temizleyebileceği alanı da sayar.",
+      "trashHint": "Çöp'e taşınan öğeler, Çöp boşaltılınca yer açar."
     }
   }
 }

@@ -172,6 +172,7 @@ pub fn run() -> Result<()> {
             folder_sizes::cancel_size_scan,
             folder_sizes::get_size_listing,
             folder_sizes::get_size_suggestions,
+            folder_sizes::get_volume_space,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application");

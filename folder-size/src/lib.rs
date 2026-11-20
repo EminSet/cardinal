@@ -11,7 +11,9 @@ pub mod persist;
 pub mod scan;
 pub mod suggest;
 pub mod tree;
+pub mod volume;
 
 pub use engine::{Phase, SizeEngine, Status};
 pub use suggest::{Level, Suggestion};
 pub use tree::{Dir, FileEntry, ItemKind, ListItem, Listing, SizeTree};
+pub use volume::{VolumeSpace, volume_space};

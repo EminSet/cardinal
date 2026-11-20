@@ -39,6 +39,16 @@ export type SizeStatus = {
   fromSnapshot: boolean;
   pendingUpdates: number;
   version: number;
+  /** Size of ~/.Trash when it is inside the scanned tree. */
+  trashSize: number | null;
+};
+
+export type VolumeSpace = {
+  total: number;
+  /** Free right now. */
+  available: number;
+  /** Finder's "available": free plus purgeable space macOS can reclaim. */
+  availableForImportantUsage: number | null;
 };
 
 export type SizeSuggestion = {
@@ -54,6 +64,7 @@ export type SizeViewMode = 'list' | 'treemap' | 'suggestions';
 
 const ACTIVE_POLL_MS = 700;
 const IDLE_POLL_MS = 5_000;
+const VOLUME_POLL_MS = 15_000;
 
 /**
  * State for the folder size tab. Polls the native engine (cheap) and refetches
@@ -68,6 +79,7 @@ export function useFolderSizes(active: boolean) {
   const [suggestions, setSuggestions] = useState<SizeSuggestion[]>([]);
   const [mode, setMode] = useState<SizeViewMode>('list');
   const [error, setError] = useState<string | null>(null);
+  const [volume, setVolume] = useState<VolumeSpace | null>(null);
   const autoStarted = useRef(false);
 
   useEffect(() => {
@@ -173,6 +185,24 @@ export function useFolderSizes(active: boolean) {
     };
   }, [active, mode, version, status?.phase]);
 
+  // Free space changes outside our control (other apps, emptying the Trash),
+  // so refresh it periodically as well as whenever the tree changes.
+  const rootForVolume = status?.rootPath ?? home;
+  useEffect(() => {
+    if (!active || !rootForVolume) return;
+    let cancelled = false;
+    const load = () =>
+      invoke<VolumeSpace | null>('get_volume_space', { path: rootForVolume })
+        .then((space) => !cancelled && setVolume(space))
+        .catch(() => !cancelled && setVolume(null));
+    void load();
+    const timer = window.setInterval(() => void load(), VOLUME_POLL_MS);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [active, rootForVolume, version]);
+
   const navigate = useCallback((path: string) => setCurrentPath(path), []);
 
   const goUp = useCallback(() => {
@@ -194,6 +224,7 @@ export function useFolderSizes(active: boolean) {
     currentPath,
     listing,
     suggestions,
+    volume,
     mode,
     setMode,
     error,

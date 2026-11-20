@@ -436,6 +436,12 @@
         "title": "File di installazione",
         "detail": "Non serve più dopo aver installato l'app."
       }
+    },
+    "space": {
+      "free": "Libero: {{free}} di {{total}}",
+      "trash": "Cestino: {{size}}",
+      "hint": "Libero ora: {{now}}. Il valore del Finder include lo spazio eliminabile.",
+      "trashHint": "Gli elementi nel Cestino liberano spazio solo dopo averlo svuotato."
     }
   }
 }

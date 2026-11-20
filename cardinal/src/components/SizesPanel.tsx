@@ -23,7 +23,7 @@ export function SizesPanel({
   onRequestFullDiskAccess,
 }: SizesPanelProps): React.JSX.Element {
   const { t, i18n } = useTranslation();
-  const { status, home, currentPath, listing, suggestions, mode, setMode, error } = sizes;
+  const { status, home, currentPath, listing, suggestions, volume, mode, setMode, error } = sizes;
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [pathInput, setPathInput] = useState('');
   const locale = i18n.language;
@@ -301,8 +301,47 @@ export function SizesPanel({
             })}
           </button>
         ) : null}
+        {volume && volume.total > 0 ? (
+          <VolumeGauge volume={volume} trashSize={status?.trashSize ?? null} bytes={bytes} />
+        ) : null}
       </div>
     </div>
+  );
+}
+
+const LOW_SPACE_SHARE = 0.1;
+
+function VolumeGauge({
+  volume,
+  trashSize,
+  bytes,
+}: {
+  volume: NonNullable<FolderSizes['volume']>;
+  trashSize: number | null;
+  bytes: (value: number) => string;
+}): React.JSX.Element {
+  const { t } = useTranslation();
+  const free = Math.min(volume.availableForImportantUsage ?? volume.available, volume.total);
+  const used = Math.max(volume.total - free, 0);
+  const low = free / volume.total < LOW_SPACE_SHARE;
+  const hint = [
+    t('sizes.space.hint', { now: bytes(volume.available) }),
+    trashSize ? t('sizes.space.trashHint') : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+  return (
+    <span className={`sizes-space${low ? ' is-low' : ''}`} title={hint}>
+      <span>{t('sizes.space.free', { free: bytes(free), total: bytes(volume.total) })}</span>
+      <span className="sizes-space__bar" aria-hidden="true">
+        <span style={{ width: `${(used / volume.total) * 100}%` }} />
+      </span>
+      {trashSize && trashSize > 0 ? (
+        <span className="sizes-space__trash">
+          {t('sizes.space.trash', { size: bytes(trashSize) })}
+        </span>
+      ) : null}
+    </span>
   );
 }
 
