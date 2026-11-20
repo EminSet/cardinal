@@ -1,7 +1,24 @@
+> **Community fork:** this repository is based on [cardisoft/cardinal](https://github.com/cardisoft/cardinal). Use **`public/cardinal-enhancements`**, not the default `master` branch, for this fork's complete feature set. [Türkçe: fork differences and integration guide](docs/FORK-INTEGRATION.tr-TR.md).
+
+## Working with this fork
+
+```bash
+git clone --branch public/cardinal-enhancements https://github.com/MehmetEminBozdag/cardinal.git
+cd cardinal
+```
+
+This branch adds visual type/date/size filters, newest-first sorting, saved searches, favorites, search-coverage controls, expanded native menus, in-app Move to Trash, APFS-aware duplicate analysis, and bounded recovery after a WebKit renderer failure. Added UI strings and the 0.1.24 release notes cover all 15 supported locales. Core query-matching speed is not changed; performance work concerns large-result metadata sorting, cancellation, and request backpressure.
+
+For integration, start with the complete branch rather than combining the three `contrib/*` review branches. The fork still uses the upstream bundle identifier `com.cardinal.one`; give a separate product its own identifier, storage paths, shortcuts, and signing configuration before distributing it alongside Cardinal. See the [integration guide](docs/FORK-INTEGRATION.tr-TR.md) for source mappings, IPC boundaries, limitations, branch history, validation, and the upstream status checked on **2026-11-20**.
+
+Upstream `master` is still at `4c50734f9a09d88110f96652b43634b412f79449`; [our PR #228](https://github.com/cardisoft/cardinal/pull/228) is open and unmerged. Open third-party PRs are proposals, not features shipped by this fork. The app's native version is `0.1.24`; that number alone does not identify this branch or prove an official upstream release.
+
+---
+
 <div align="center">
   <img src="cardinal/mac-icon_1024x1024.png" alt="Cardinal icon" width="120" height="120">
   <h1>Cardinal</h1>
-  <p>Fastest and most accurate file search app for macOS.</p>
+  <p>macOS file search, based on Cardinal with community workflow and reliability enhancements.</p>
   <p>
     <a href="#using-cardinal">Using Cardinal</a> ·
     <a href="#building-cardinal">Building Cardinal</a>
@@ -17,7 +34,9 @@
 
 ### Download
 
-Use homebrew:
+**The commands and upstream releases below install original Cardinal, not this fork.** Download this fork's Apple Silicon DMG from [fork release v0.1.24-fork.1](https://github.com/MehmetEminBozdag/cardinal/releases/tag/v0.1.24-fork.1), or build `public/cardinal-enhancements`. This is a community prerelease with an ad-hoc signature, not an Apple-notarized upstream build. The release tag identifies the fork snapshot; the bundled app still reports native version `0.1.24`.
+
+Install original Cardinal with Homebrew:
 
 ```bash
 brew install --cask cardinal-search
@@ -78,6 +97,7 @@ Happy searching!
 
 ```bash
 cd cardinal
+npm ci
 npm run tauri dev -- --release --features dev
 ```
 
@@ -85,5 +105,8 @@ npm run tauri dev -- --release --features dev
 
 ```bash
 cd cardinal
+npm ci
 npm run tauri build
 ```
+
+Use the toolchain pinned in `rust-toolchain.toml` (`nightly-2025-12-11` at this snapshot). Build outputs are under `cardinal/src-tauri/target/release/bundle/` relative to the repository root. They are ignored by Git. See the [guide's validation commands](docs/FORK-INTEGRATION.tr-TR.md#dogrulama) before integrating or distributing a build.

@@ -1,3 +1,5 @@
+> **Community fork:** all fork enhancements are on `public/cardinal-enhancements`, not the default `master` branch. Homebrew and upstream downloads below install original Cardinal. See the [fork README](../../README.md) and [integration guide (Turkish)](../../docs/FORK-INTEGRATION.tr-TR.md) for fork packages, differences, and source selection.
+
 <div align="center">
   <img src="../../cardinal/mac-icon_1024x1024.png" alt="Cardinal アイコン" width="120" height="120">
   <h1>Cardinal</h1>

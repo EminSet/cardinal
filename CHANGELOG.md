@@ -1,5 +1,17 @@
 # Changelog
 
+## Fork follow-up — 2026-11-01
+
+- Probe the visible, non-minimized WebView every 15 seconds; reload after 60 seconds without a DOM/IPC response, with at most three attempts per ten minutes.
+- Record renderer-health events in a bounded local log and tolerate a dropped search-response receiver during renderer recovery.
+- A packaged killed-WebContent recovery test passed on 2026-11-01. The original high-CPU trigger was not established; this is renderer recovery, not a GPU-driver or general CPU fix.
+
+## Fork follow-up — 2026-09-07
+
+- Defer the Trash confirmation until after the native context-menu callback returns. Unit tests and packaging passed; the final packaged multi-delete rerun remained pending at that snapshot.
+
+Fork handoff and upstream status: [integration guide](docs/FORK-INTEGRATION.tr-TR.md), checked 2026-11-20. Earlier 0.1.24 notes mention extension filters; the shipped visual filter component currently exposes type, modified date, and size only. Extension syntax remains available in the query language.
+
 ## 0.1.24 — 2026-08-28
 - Move advanced search controls into the interface, including newest-first sorting, folders as a type, date/size/extension filters, and one-click inclusion of excluded paths.
 - Add a hideable workspace toolbar and expanded Search, View, and Index menus for saved searches, favorites, coverage, operations, and duplicate analysis.

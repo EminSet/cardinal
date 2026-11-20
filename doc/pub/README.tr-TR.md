@@ -1,7 +1,22 @@
+> **Topluluk fork'u:** Bu depo [orijinal Cardinal](https://github.com/cardisoft/cardinal) üzerine geliştirilmiştir. Tüm ek özellikler **`public/cardinal-enhancements`** dalındadır; varsayılan `master` dalında değildir. [Ayrıntılı farklar ve entegrasyon rehberi](../../docs/FORK-INTEGRATION.tr-TR.md).
+
+## Bu fork ile çalışma
+
+```bash
+git clone --branch public/cardinal-enhancements https://github.com/MehmetEminBozdag/cardinal.git
+cd cardinal
+```
+
+Görsel tür/tarih/boyut filtreleri, en yeniler, kayıtlı aramalar, favoriler, arama kapsamı açıklamaları, genişletilmiş menüler, doğrudan Çöp'e taşıma, APFS farkındalıklı kopya analizi ve WebKit arayüz kurtarması eklenmiştir. Çekirdek sorgu eşleştirmesinin hızlandığı iddia edilmez; performans çalışması büyük sonuçların metadata sıralaması, iptal ve istek yığılmasını önleme üzerindedir.
+
+20 Kasım 2026 kontrolünde upstream `master` hâlâ `4c50734f` commitindedir; [PR #228](https://github.com/cardisoft/cardinal/pull/228) açıktır ve birleştirilmemiştir. `0.1.24` bu fork'un uygulama sürümüdür; resmi upstream sürümü anlamına gelmez. Birleştirme yapacak geliştirici için dal seçimi, kaynak haritası, veri/IPC sınırları ve test durumları [rehberde](../../docs/FORK-INTEGRATION.tr-TR.md) açıklanır.
+
+---
+
 <div align="center">
   <img src="../../cardinal/mac-icon_1024x1024.png" alt="Cardinal simgesi" width="120" height="120">
   <h1>Cardinal</h1>
-  <p>macOS için en hızlı ve en doğru dosya arama uygulaması.</p>
+  <p>Cardinal tabanlı, iş akışı ve dayanıklılık geliştirmeleri içeren macOS dosya araması.</p>
   <p>
     <a href="#cardinali-kullanma">Cardinal’i kullanma</a> ·
     <a href="#cardinali-derleme">Cardinal’i derleme</a>
@@ -17,7 +32,9 @@
 
 ### İndirme
 
-Homebrew ile kurun:
+**Aşağıdaki Homebrew komutu ve upstream sürümleri orijinal Cardinal'i kurar; bu fork'u kurmaz.** Apple Silicon DMG için [fork yayını v0.1.24-fork.1](https://github.com/MehmetEminBozdag/cardinal/releases/tag/v0.1.24-fork.1) kullanılabilir; kaynak için `public/cardinal-enhancements` dalını derleyin. Paket topluluk ön sürümüdür, ad-hoc imzalıdır ve Apple notarization içermez. Yayın etiketi fork kaydını ayırır; uygulama içindeki native sürüm hâlâ `0.1.24` görünür.
+
+Orijinal Cardinal'i Homebrew ile kurun:
 
 ```bash
 brew install --cask cardinal-search
@@ -78,6 +95,7 @@ Desteklenen operatör kataloğu (mantıksal gruplama, klasör kapsamı, uzantı 
 
 ```bash
 cd cardinal
+npm ci
 npm run tauri dev -- --release --features dev
 ```
 
@@ -85,5 +103,8 @@ npm run tauri dev -- --release --features dev
 
 ```bash
 cd cardinal
+npm ci
 npm run tauri build
 ```
+
+Rust sürümünü `rust-toolchain.toml` belirler (bu kayıtta `nightly-2025-12-11`). Paket çıktıları depo köküne göre `cardinal/src-tauri/target/release/bundle/` altındadır; Git'e dahil edilmez.

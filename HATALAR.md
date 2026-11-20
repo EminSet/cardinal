@@ -1,3 +1,11 @@
+## [2026-11-20] Kopya analizi testleri paralel generation sayacinda cakisti
+
+Sebep: Paralel Rust testinde `full_hash_never_reads_past_the_remaining_budget`, baska bir testin ortak DUPLICATE_SCAN_GENERATION sayacini degistirmesi nedeniyle BudgetExceeded yerine Cancelled gordu.
+
+Cozum: Ayni hedef test yalitilmis kosuda ve tum 57 test `--test-threads=1` ile gecti. Bu turda uretim/test kodu degistirilmedi; kalici test izolasyonu duzeltmesi henuz yapilmadi.
+
+Kural: Devir/yayin dogrulamasinda sirali Rust komutunu ve paralel kosu sinirlamasini birlikte raporla; tek test gecisini paralel testlerin tam basarisi gibi sunma.
+
 ## [2026-11-01] WebKit GPU sureci kapandiktan sonra arayuz siyah kaldi
 
 Sebep: macOS unified log 01:32-01:41 arasinda tekrarlayan GPUProcess Unresponsive ve GPUProcessCrashedTooManyTimes nedeniyle WebContent PID 1552'nin kapatildigini gosterdi. Ana surec acik kaldi; mevcut uygulamada arayuz saglik kontrolu/kurtarma yoktu. Onceki CPU artisinin ilk tetikleyicisi kayitlardan belirlenemedi.
