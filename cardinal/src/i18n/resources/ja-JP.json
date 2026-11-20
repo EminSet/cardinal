@@ -461,6 +461,18 @@
       "clangModuleCache": {
         "title": "Clang モジュールキャッシュ",
         "detail": "Xcode/clang のコンパイル済みモジュールキャッシュ。次回のビルドで再作成されます。"
+      },
+      "editorWebCache": {
+        "title": "エディタの Webview キャッシュ",
+        "detail": "エディタのパネルや拡張機能の Web コンテンツのキャッシュ (VS Code、Cursor、Antigravity)。必要に応じて再作成されます。先にエディタを終了してください。"
+      },
+      "vsixCache": {
+        "title": "エディタ拡張機能のダウンロードキャッシュ",
+        "detail": "拡張機能のインストール後に残る .vsix パッケージ。必要に応じて再ダウンロードされます。"
+      },
+      "codexRuntimeInstall": {
+        "title": "Codex ランタイムのインストール残骸",
+        "detail": "完了していない Codex ランタイムのインストール。Codex が使用中のランタイムは表示されません。"
       }
     },
     "space": {

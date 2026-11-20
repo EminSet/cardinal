@@ -60,6 +60,28 @@ fn new_rules_match_only_their_targets() {
     write(&home, "Library/Application Support/Code/CachedData/a");
     write(&home, "Library/Application Support/Cursor/GPUCache/a");
     write(&home, "Library/Application Support/Code/User/settings.json");
+    write(
+        &home,
+        "Library/Application Support/Code/WebStorage/4/CacheStorage/a",
+    );
+    write(
+        &home,
+        "Library/Application Support/Code/WebStorage/4/IndexedDB/a",
+    );
+    write(
+        &home,
+        "Library/Application Support/Code/CachedExtensionVSIXs/x.vsix",
+    );
+    write(
+        &home,
+        "Library/Application Support/Antigravity IDE/CachedData/a",
+    );
+    write(
+        &home,
+        ".cache/codex-runtimes/codex-runtime-install-GaTnDD/a",
+    );
+    write(&home, ".cache/codex-runtimes/node-v22/bin");
+    write(&home, ".cache/codeburn/daily-cache.v2.json");
 
     let ctx = ScanContext::new(&home, Arc::new(AtomicBool::new(false)));
     let tree = scan_tree(&home, &ctx).unwrap();
@@ -104,6 +126,7 @@ fn new_rules_match_only_their_targets() {
     assert_eq!(
         rel("editorCache"),
         vec![
+            "Library/Application Support/Antigravity IDE/CachedData",
             "Library/Application Support/Code/CachedData",
             "Library/Application Support/Cursor/GPUCache",
         ]
@@ -118,6 +141,26 @@ fn new_rules_match_only_their_targets() {
         "History",
         "Code/User",
     ] {
+        assert!(
+            !all.iter().any(|p| p.contains(kept)),
+            "{kept} must stay: {all:?}"
+        );
+    }
+    assert_eq!(
+        rel("editorWebCache"),
+        vec!["Library/Application Support/Code/WebStorage/4/CacheStorage"]
+    );
+    assert_eq!(
+        rel("vsixCache"),
+        vec!["Library/Application Support/Code/CachedExtensionVSIXs"]
+    );
+    assert_eq!(
+        rel("codexRuntimeInstall"),
+        vec![".cache/codex-runtimes/codex-runtime-install-GaTnDD"]
+    );
+    // ~/.cache is offered per tool; codex-runtimes itself is not (only its install leftovers).
+    assert_eq!(rel("toolCache"), vec![".cache/codeburn"]);
+    for kept in ["IndexedDB", "node-v22"] {
         assert!(
             !all.iter().any(|p| p.contains(kept)),
             "{kept} must stay: {all:?}"

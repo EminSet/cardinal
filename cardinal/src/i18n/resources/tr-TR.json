@@ -461,6 +461,18 @@
       "clangModuleCache": {
         "title": "Clang modül önbelleği",
         "detail": "Xcode/clang'ın derlenmiş modül önbelleği; bir sonraki derlemede yeniden oluşur."
+      },
+      "editorWebCache": {
+        "title": "Editör webview önbelleği",
+        "detail": "Editör panellerinin ve eklentilerin önbelleğe alınmış web içeriği (VS Code, Cursor, Antigravity); gerekince yeniden oluşur. Önce editörü kapatın."
+      },
+      "vsixCache": {
+        "title": "Editör eklenti indirme önbelleği",
+        "detail": "Eklentiler kurulduktan sonra saklanan .vsix paketleri; gerekince yeniden iner."
+      },
+      "codexRuntimeInstall": {
+        "title": "Codex çalışma ortamı kurulum artıkları",
+        "detail": "Yarım kalmış Codex çalışma ortamı kurulumları; Codex'in kullandığı ortamlar listelenmez."
       }
     },
     "space": {

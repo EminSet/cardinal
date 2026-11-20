@@ -122,7 +122,7 @@ const RULES: &[Rule] = &[
     Rule {
         id: "toolCache",
         level: Level::Review,
-        matcher: Match::Exact(".cache"),
+        matcher: Match::ChildrenOf(".cache"),
     },
     Rule {
         id: "spotifyCache",
@@ -195,8 +195,27 @@ const RULES: &[Rule] = &[
         id: "editorCache",
         level: Level::Safe,
         matcher: Match::Pattern(
-            "Library/Application Support/{Code,Code - Insiders,Antigravity,Cursor,Windsurf}/{Cache,CachedData,Code Cache,GPUCache}",
+            "Library/Application Support/{Code,Code - Insiders,Antigravity,Antigravity IDE,Cursor,Windsurf}/{Cache,CachedData,Code Cache,GPUCache}",
         ),
+    },
+    Rule {
+        id: "editorWebCache",
+        level: Level::Safe,
+        matcher: Match::Pattern(
+            "Library/Application Support/{Code,Code - Insiders,Antigravity,Antigravity IDE,Cursor,Windsurf}/WebStorage/*/CacheStorage",
+        ),
+    },
+    Rule {
+        id: "vsixCache",
+        level: Level::Safe,
+        matcher: Match::Pattern(
+            "Library/Application Support/{Code,Code - Insiders,Antigravity,Antigravity IDE,Cursor,Windsurf}/CachedExtensionVSIXs",
+        ),
+    },
+    Rule {
+        id: "codexRuntimeInstall",
+        level: Level::Safe,
+        matcher: Match::Pattern(".cache/codex-runtimes/codex-runtime-install-*"),
     },
     Rule {
         id: "clangModuleCache",
@@ -222,6 +241,8 @@ pub const MIN_SUGGESTION_SIZE: u64 = 50 * 1024 * 1024;
 enum Segment {
     Any,
     OneOf(Vec<&'static str>),
+    /// `name-*`: any folder name starting with the prefix.
+    Prefix(&'static str),
 }
 
 fn parse_pattern(pattern: &'static str) -> Vec<Segment> {
@@ -230,6 +251,8 @@ fn parse_pattern(pattern: &'static str) -> Vec<Segment> {
         .map(|seg| {
             if seg == "*" {
                 Segment::Any
+            } else if let Some(prefix) = seg.strip_suffix('*') {
+                Segment::Prefix(prefix)
             } else if let Some(inner) = seg.strip_prefix('{').and_then(|s| s.strip_suffix('}')) {
                 Segment::OneOf(inner.split(',').collect())
             } else {
@@ -239,13 +262,31 @@ fn parse_pattern(pattern: &'static str) -> Vec<Segment> {
         .collect()
 }
 
+fn segment_matches(part: &std::ffi::OsStr, seg: &Segment) -> bool {
+    match seg {
+        Segment::Any => true,
+        Segment::OneOf(names) => names.iter().any(|n| part == std::ffi::OsStr::new(n)),
+        Segment::Prefix(prefix) => part.to_string_lossy().starts_with(prefix),
+    }
+}
+
 fn pattern_matches(segments: &[Segment], relative: &Path) -> bool {
     let parts: Vec<_> = relative.components().map(|c| c.as_os_str()).collect();
     parts.len() == segments.len()
-        && parts.iter().zip(segments).all(|(part, seg)| match seg {
-            Segment::Any => true,
-            Segment::OneOf(names) => names.iter().any(|n| *part == std::ffi::OsStr::new(n)),
-        })
+        && parts
+            .iter()
+            .zip(segments)
+            .all(|(part, seg)| segment_matches(part, seg))
+}
+
+/// Whether `relative` is a strict ancestor of something the pattern can match.
+fn pattern_below(segments: &[Segment], relative: &Path) -> bool {
+    let parts: Vec<_> = relative.components().map(|c| c.as_os_str()).collect();
+    parts.len() < segments.len()
+        && parts
+            .iter()
+            .zip(segments)
+            .all(|(part, seg)| segment_matches(part, seg))
 }
 
 /// `getconf DARWIN_USER_CACHE_DIR`, resolved through `/var -> /private/var`.
@@ -417,6 +458,18 @@ fn walk(dir: &Dir, path: &Path, is_root: bool, rules: &Rules, out: &mut Vec<Sugg
     }
     if let Some(rule) = rules.children_of.get(path) {
         for child in &dir.children {
+            let child_path = path.join(&*child.name);
+            // A more specific pattern lives below this child: look inside instead.
+            let more_specific = child_path.strip_prefix(rules.home).is_ok_and(|rel| {
+                rules
+                    .patterns
+                    .iter()
+                    .any(|(segs, _)| pattern_below(segs, rel))
+            });
+            if more_specific {
+                walk(child, &child_path, false, rules, out);
+                continue;
+            }
             push(
                 out,
                 rules,
@@ -522,5 +575,20 @@ mod tests {
             &segs,
             Path::new("Library/Application Support/Code/User")
         ));
+    }
+
+    #[test]
+    fn prefix_segments_and_ancestors() {
+        let segs = parse_pattern(".cache/codex-runtimes/codex-runtime-install-*");
+        assert!(pattern_matches(
+            &segs,
+            Path::new(".cache/codex-runtimes/codex-runtime-install-GaTnDD")
+        ));
+        assert!(!pattern_matches(
+            &segs,
+            Path::new(".cache/codex-runtimes/node-v22")
+        ));
+        assert!(pattern_below(&segs, Path::new(".cache/codex-runtimes")));
+        assert!(!pattern_below(&segs, Path::new(".cache/codeburn")));
     }
 }
