@@ -459,6 +459,18 @@
       "clangModuleCache": {
         "title": "Clang 모듈 캐시",
         "detail": "Xcode/clang의 컴파일된 모듈 캐시입니다. 다음 빌드 때 다시 만들어집니다."
+      },
+      "editorWebCache": {
+        "title": "편집기 웹뷰 캐시",
+        "detail": "편집기 패널과 확장의 캐시된 웹 콘텐츠(VS Code, Cursor, Antigravity)입니다. 필요하면 다시 만들어집니다. 먼저 편집기를 종료하세요."
+      },
+      "vsixCache": {
+        "title": "편집기 확장 다운로드 캐시",
+        "detail": "확장 설치 후 남은 .vsix 패키지입니다. 필요하면 다시 받습니다."
+      },
+      "codexRuntimeInstall": {
+        "title": "Codex 런타임 설치 잔여물",
+        "detail": "완료되지 않은 Codex 런타임 설치입니다. Codex가 사용하는 런타임은 표시되지 않습니다."
       }
     },
     "space": {

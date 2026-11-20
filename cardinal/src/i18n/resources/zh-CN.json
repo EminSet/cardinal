@@ -458,6 +458,18 @@
       "clangModuleCache": {
         "title": "Clang 模块缓存",
         "detail": "Xcode/clang 的已编译模块缓存；下次构建时重新生成。"
+      },
+      "editorWebCache": {
+        "title": "编辑器 webview 缓存",
+        "detail": "编辑器面板和扩展的已缓存网页内容（VS Code、Cursor、Antigravity）；需要时重新生成。请先退出编辑器。"
+      },
+      "vsixCache": {
+        "title": "编辑器扩展下载缓存",
+        "detail": "安装扩展后保留的 .vsix 包；需要时重新下载。"
+      },
+      "codexRuntimeInstall": {
+        "title": "Codex 运行时安装残留",
+        "detail": "未完成的 Codex 运行时安装；Codex 实际使用的运行时不会列出。"
       }
     },
     "space": {

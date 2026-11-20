@@ -458,6 +458,18 @@
       "clangModuleCache": {
         "title": "Clang 模組快取",
         "detail": "Xcode/clang 的已編譯模組快取；下次建置時重新建立。"
+      },
+      "editorWebCache": {
+        "title": "編輯器 webview 快取",
+        "detail": "編輯器面板與延伸功能的已快取網頁內容（VS Code、Cursor、Antigravity）；需要時重新建立。請先結束編輯器。"
+      },
+      "vsixCache": {
+        "title": "編輯器延伸功能下載快取",
+        "detail": "安裝延伸功能後保留的 .vsix 套件；需要時重新下載。"
+      },
+      "codexRuntimeInstall": {
+        "title": "Codex 執行環境安裝殘留",
+        "detail": "未完成的 Codex 執行環境安裝；Codex 實際使用的執行環境不會列出。"
       }
     },
     "space": {

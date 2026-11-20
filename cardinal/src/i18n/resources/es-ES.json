@@ -459,6 +459,18 @@
       "clangModuleCache": {
         "title": "Caché de módulos de Clang",
         "detail": "Caché de módulos compilados de Xcode/clang; se regenera en la próxima compilación."
+      },
+      "editorWebCache": {
+        "title": "Caché de webview del editor",
+        "detail": "Contenido web en caché de paneles y extensiones del editor (VS Code, Cursor, Antigravity); se regenera si hace falta. Cierra el editor antes."
+      },
+      "vsixCache": {
+        "title": "Caché de descargas de extensiones",
+        "detail": "Paquetes .vsix guardados tras instalar extensiones; se descargan de nuevo si hace falta."
+      },
+      "codexRuntimeInstall": {
+        "title": "Restos de instalaciones del runtime de Codex",
+        "detail": "Instalaciones incompletas del runtime de Codex; no se listan los runtimes que Codex usa."
       }
     },
     "space": {
