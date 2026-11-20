@@ -48,6 +48,7 @@ search-cache.path = "../../search-cache"
 fswalk.path = "../../fswalk"
 fs-icon.path = "../../fs-icon"
 search-cancel.path = "../../search-cancel"
+folder-size.path = "../../folder-size"
 camino = "1.2.1"
 
 [features]
