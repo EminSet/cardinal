@@ -26,6 +26,7 @@ const KIND_ORDER: LeftoverKind[] = [
   'launchItem',
   'helper',
   'receipt',
+  'recentDocuments',
   'other',
 ];
 

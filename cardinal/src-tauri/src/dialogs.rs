@@ -45,3 +45,31 @@ pub async fn confirm_dialog(
         .await
         .map_err(|e| format!("Dialog failed: {e}"))
 }
+
+/// Native replacement for `window.alert`, which WKWebView also ignores.
+#[tauri::command(async)]
+pub async fn message_dialog(
+    app: AppHandle,
+    message: String,
+    detail: Option<String>,
+    ok_label: String,
+) -> Result<(), String> {
+    let (tx, rx) = crossbeam_channel::bounded(1);
+    app.run_on_main_thread(move || {
+        if let Some(mtm) = MainThreadMarker::new() {
+            let alert = NSAlert::new(mtm);
+            alert.setMessageText(&NSString::from_str(&message));
+            if let Some(detail) = detail.filter(|d| !d.is_empty()) {
+                alert.setInformativeText(&NSString::from_str(&detail));
+            }
+            alert.addButtonWithTitle(&NSString::from_str(&ok_label));
+            alert.runModal();
+        }
+        let _ = tx.send(());
+    })
+    .map_err(|e| format!("Could not show dialog: {e}"))?;
+    tauri::async_runtime::spawn_blocking(move || rx.recv().ok())
+        .await
+        .map_err(|e| format!("Dialog failed: {e}"))?;
+    Ok(())
+}

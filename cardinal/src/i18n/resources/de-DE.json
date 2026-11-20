@@ -469,6 +469,7 @@
       "launchItem": "Startagenten & -dienste",
       "helper": "Privilegierte Helfer",
       "receipt": "Vom Paket installiert",
+      "recentDocuments": "Liste zuletzt benutzter Dokumente",
       "other": "Anderswo auf der Festplatte"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Abbrechen",
-    "moveToTrash": "In den Papierkorb legen"
+    "moveToTrash": "In den Papierkorb legen",
+    "ok": "OK"
   }
 }

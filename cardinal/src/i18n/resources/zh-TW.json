@@ -468,6 +468,7 @@
       "launchItem": "啟動代理程式與常駐程式",
       "helper": "特權輔助程式",
       "receipt": "由安裝套件安裝",
+      "recentDocuments": "最近使用的文件列表",
       "other": "磁碟上的其他位置"
     },
     "confidence": {
@@ -507,6 +508,7 @@
   },
   "dialog": {
     "cancel": "取消",
-    "moveToTrash": "移到垃圾桶"
+    "moveToTrash": "移到垃圾桶",
+    "ok": "好"
   }
 }

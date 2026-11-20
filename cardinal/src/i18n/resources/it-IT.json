@@ -469,6 +469,7 @@
       "launchItem": "Agenti e servizi di avvio",
       "helper": "Helper privilegiati",
       "receipt": "Installato dal pacchetto",
+      "recentDocuments": "Elenco documenti recenti",
       "other": "Altrove sul disco"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Annulla",
-    "moveToTrash": "Sposta nel Cestino"
+    "moveToTrash": "Sposta nel Cestino",
+    "ok": "OK"
   }
 }

@@ -23,6 +23,7 @@ export type LeftoverKind =
   | 'launchItem'
   | 'helper'
   | 'receipt'
+  | 'recentDocuments'
   | 'other';
 
 export type Confidence = 'certain' | 'likely' | 'possible';

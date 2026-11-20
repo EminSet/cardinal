@@ -469,6 +469,7 @@
       "launchItem": "起動エージェントとデーモン",
       "helper": "特権ヘルパー",
       "receipt": "パッケージがインストール",
+      "recentDocuments": "最近使った書類のリスト",
       "other": "ディスク上の他の場所"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "キャンセル",
-    "moveToTrash": "ゴミ箱に入れる"
+    "moveToTrash": "ゴミ箱に入れる",
+    "ok": "OK"
   }
 }

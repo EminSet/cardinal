@@ -469,6 +469,7 @@
       "launchItem": "실행 에이전트 및 데몬",
       "helper": "권한 있는 도우미",
       "receipt": "패키지가 설치함",
+      "recentDocuments": "최근 문서 목록",
       "other": "디스크의 다른 위치"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "취소",
-    "moveToTrash": "휴지통으로 이동"
+    "moveToTrash": "휴지통으로 이동",
+    "ok": "확인"
   }
 }

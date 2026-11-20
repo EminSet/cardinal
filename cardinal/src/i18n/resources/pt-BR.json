@@ -469,6 +469,7 @@
       "launchItem": "Agentes e serviços de inicialização",
       "helper": "Auxiliares privilegiados",
       "receipt": "Instalado pelo pacote",
+      "recentDocuments": "Lista de documentos recentes",
       "other": "Em outros lugares do disco"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Cancelar",
-    "moveToTrash": "Mover para o Lixo"
+    "moveToTrash": "Mover para o Lixo",
+    "ok": "OK"
   }
 }

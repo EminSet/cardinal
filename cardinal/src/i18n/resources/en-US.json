@@ -469,6 +469,7 @@
       "launchItem": "Launch agents & daemons",
       "helper": "Privileged helpers",
       "receipt": "Installed by its package",
+      "recentDocuments": "Recent documents list",
       "other": "Elsewhere on disk"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Cancel",
-    "moveToTrash": "Move to Trash"
+    "moveToTrash": "Move to Trash",
+    "ok": "OK"
   }
 }

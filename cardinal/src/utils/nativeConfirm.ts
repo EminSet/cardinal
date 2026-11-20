@@ -30,3 +30,18 @@ export async function confirmNative(options: NativeConfirmOptions): Promise<bool
   }
   return window.confirm([options.message, options.detail].filter(Boolean).join('\n\n'));
 }
+
+/** Native replacement for `window.alert` (also ignored by WKWebView). */
+export async function alertNative(
+  message: string,
+  okLabel: string,
+  detail?: string,
+): Promise<void> {
+  try {
+    await invoke('message_dialog', { message, detail: detail ?? null, okLabel });
+    return;
+  } catch {
+    // Fall through to the browser dialog.
+  }
+  window.alert([message, detail].filter(Boolean).join('\n\n'));
+}

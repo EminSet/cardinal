@@ -469,6 +469,7 @@
       "launchItem": "Agents et démons de lancement",
       "helper": "Assistants privilégiés",
       "receipt": "Installé par son paquet",
+      "recentDocuments": "Liste des documents récents",
       "other": "Ailleurs sur le disque"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Annuler",
-    "moveToTrash": "Placer dans la Corbeille"
+    "moveToTrash": "Placer dans la Corbeille",
+    "ok": "OK"
   }
 }

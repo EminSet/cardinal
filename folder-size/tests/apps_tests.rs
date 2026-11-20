@@ -44,6 +44,8 @@ fn finds_leftovers_in_user_and_system_library() {
         100,
     );
     write(&lib.join("LaunchAgents/com.acme.updater.plist"), 100);
+    let recent = lib.join("Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments");
+    write(&recent.join("com.acme.widget.sfl3"), 100);
     write(&sys.join("LaunchDaemons/com.acme.helper.plist"), 100);
     write(&sys.join("Application Support/Widget/shared.bin"), 1 << 20);
     // Belongs to another app and must not be matched.
@@ -110,6 +112,13 @@ fn finds_leftovers_in_user_and_system_library() {
         Confidence::Likely
     ));
     assert!(has(&extra[0], Confidence::Possible));
+    assert!(
+        plan.items
+            .iter()
+            .any(|i| i.kind == LeftoverKind::RecentDocuments
+                && i.confidence == Confidence::Certain
+                && i.path.ends_with("com.acme.widget.sfl3"))
+    );
     assert!(
         plan.items
             .iter()

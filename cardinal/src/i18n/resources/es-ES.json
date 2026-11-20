@@ -469,6 +469,7 @@
       "launchItem": "Agentes y servicios de arranque",
       "helper": "Ayudantes privilegiados",
       "receipt": "Instalado por su paquete",
+      "recentDocuments": "Lista de documentos recientes",
       "other": "En otras partes del disco"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Cancelar",
-    "moveToTrash": "Mover a la Papelera"
+    "moveToTrash": "Mover a la Papelera",
+    "ok": "Aceptar"
   }
 }

@@ -6,7 +6,7 @@ import type { MenuItemOptions } from '@tauri-apps/api/menu';
 import { useTranslation } from 'react-i18next';
 import { openResultPath } from '../utils/openResultPath';
 import { splitPath } from '../utils/path';
-import { confirmNative } from '../utils/nativeConfirm';
+import { alertNative, confirmNative } from '../utils/nativeConfirm';
 
 type UseContextMenuResult = {
   showContextMenu: (event: ReactMouseEvent<HTMLElement>, targetPaths: string[]) => void;
@@ -131,7 +131,7 @@ export function useContextMenu(
               .catch((error) => {
                 onFileOperation?.({ id, kind: 'trash', state: 'failed', itemCount: trashCount });
                 console.error('Failed to move files to Trash', error);
-                window.alert(t('contextMenu.trashFailed'));
+                void alertNative(t('contextMenu.trashFailed'), t('dialog.ok'));
               });
           }, 0);
         },

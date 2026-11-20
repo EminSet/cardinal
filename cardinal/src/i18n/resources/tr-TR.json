@@ -469,6 +469,7 @@
       "launchItem": "Arka plan servisleri",
       "helper": "Ayrıcalıklı yardımcılar",
       "receipt": "Yükleyicinin kurduğu",
+      "recentDocuments": "Son belgeler listesi",
       "other": "Diskin başka yerlerinde"
     },
     "confidence": {
@@ -508,6 +509,7 @@
   },
   "dialog": {
     "cancel": "Vazgeç",
-    "moveToTrash": "Çöp'e Taşı"
+    "moveToTrash": "Çöp'e Taşı",
+    "ok": "Tamam"
   }
 }

@@ -418,7 +418,11 @@ impl SizeEngine {
         }
         let name = path.file_name()?.to_string_lossy();
         let parent = tree.get(path.parent()?)?;
-        parent.files.iter().find(|f| *f.name == *name).map(|f| f.size)
+        parent
+            .files
+            .iter()
+            .find(|f| *f.name == *name)
+            .map(|f| f.size)
     }
 
     pub fn root_path(&self) -> Option<PathBuf> {

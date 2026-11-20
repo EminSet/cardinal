@@ -468,6 +468,7 @@
       "launchItem": "启动代理与守护进程",
       "helper": "特权辅助程序",
       "receipt": "由安装包安装",
+      "recentDocuments": "最近使用的文稿列表",
       "other": "磁盘上的其他位置"
     },
     "confidence": {
@@ -507,6 +508,7 @@
   },
   "dialog": {
     "cancel": "取消",
-    "moveToTrash": "移到废纸篓"
+    "moveToTrash": "移到废纸篓",
+    "ok": "好"
   }
 }

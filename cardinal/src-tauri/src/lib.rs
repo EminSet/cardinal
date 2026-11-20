@@ -179,6 +179,7 @@ pub fn run() -> Result<()> {
             app_uninstall::analyze_app,
             app_uninstall::uninstall_app,
             dialogs::confirm_dialog,
+            dialogs::message_dialog,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application");

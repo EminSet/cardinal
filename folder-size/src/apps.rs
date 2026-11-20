@@ -90,6 +90,8 @@ pub enum LeftoverKind {
     LaunchItem,
     Helper,
     Receipt,
+    /// macOS's per-app "recent documents" list.
+    RecentDocuments,
     Other,
 }
 
@@ -215,6 +217,8 @@ impl Matcher<'_> {
         let id = &self.bundle_id;
         let stem = lower
             .strip_suffix(".plist")
+            .or_else(|| lower.strip_suffix(".sfl2"))
+            .or_else(|| lower.strip_suffix(".sfl3"))
             .or_else(|| lower.strip_suffix(".savedstate"))
             .or_else(|| lower.strip_suffix(".binarycookies"))
             .unwrap_or(&lower);
@@ -315,6 +319,13 @@ const LIBRARY_FOLDERS: &[(&str, LeftoverKind, bool, VendorMatch, bool)] = &[
         false,
         Strong,
         true,
+    ),
+    (
+        "Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments",
+        LeftoverKind::RecentDocuments,
+        false,
+        No,
+        false,
     ),
 ];
 
